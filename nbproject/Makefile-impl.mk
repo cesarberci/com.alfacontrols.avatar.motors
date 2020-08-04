@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=com.alfacontrols.avatar-motors.X
+PROJECTNAME=com.alfacontrols.avatar.motors
 
 # Active Configuration
 DEFAULTCONF=default
