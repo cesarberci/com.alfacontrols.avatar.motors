@@ -244,7 +244,7 @@ extern "C" {
          */
         bool (*healthy)(struct SPI * this);
         uint8_t rChar; /*!< received data */        
-        /* Algorithm local functions and variables */               
+        /* Algorithm local functions and variables (should be private)*/               
         bool (*hwopen)(void);        
         void (*hwclose)(void);
         void (*hwreset)(void);
@@ -268,12 +268,13 @@ extern "C" {
      * @details
      * This function creates a new object to handle a hardware SPI driver, 
      * based on the provided hardware access functions.
-     * @param _op Hardware open function
-     * @param _cl Hardware close function
-     * @param _rd Hardware read single byte function
-     * @param _wr1 Hardware write single byte function thread 1
-     * @param _wr2 Hardware write single byte function thread 2
-     * @param _rst Hardware reset function
+     * @param op Hardware open function
+     * @param cl Hardware close function
+     * @param rd Hardware read single byte function
+     * @param wr1 Hardware write single byte function thread 1
+     * @param wr2 Hardware write single byte function thread 2
+     * @param rst Hardware reset function
+     * @param ie Interrupt enable function
      * @return New SPI communication object.
      */
     Spi NewSpiDriver(bool (*op)(void), void (*cl)(void), uint8_t (*rd)(void), void (*wr1)(uint8_t), void (*wr2)(uint8_t), void (*rst)(void), void (*ie)(bool st));

@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/com.alfacontrols.avatar-motors.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=com.alfacontrols.avatar-motors.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=com.alfacontrols.avatar-motors.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/com.alfacontrols.avatar.motors.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=com.alfacontrols.avatar.motors.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=com.alfacontrols.avatar.motors/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/com.alfacontrols.avatar-motors.x/bin
+makeDirectory ${TMPDIR}/com.alfacontrols.avatar.motors/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/com.alfacontrols.avatar-motors.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/com.alfacontrols.avatar.motors.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/com.alfacontrols.avatar-motors.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/com.alfacontrols.avatar.motors.tar *
 checkReturnCode
 
 # Cleanup

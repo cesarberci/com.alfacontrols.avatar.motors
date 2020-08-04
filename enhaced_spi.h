@@ -1,29 +1,11 @@
-/* Microchip Technology Inc. and its subsidiaries.  You may use this software 
- * and any derivatives exclusively with Microchip products. 
- * 
- * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".  NO WARRANTIES, WHETHER 
- * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
- * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A 
- * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION 
- * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. 
- *
- * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
- * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
- * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
- * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE 
- * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS 
- * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF 
- * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *
- * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
- * TERMS. 
- */
-
 /* 
+ * Enhaced SPI Driver
+ * 
  * File:   enhaced_spi
  * Author: Cesar Daltoe Berci
- * Comments: Enhanced SPI Wrapper, created to complement CODE CONFIGURATOR
- * Revision history: 
+ * Comments: Enhanced SPI Wrapper, created to complement CODE CONFIGURATOR 
+ * codes to handle spi hardware
+ * Revision history: june 2020, fisrt version
  */
 
 // This is a guard condition so that contents of this file are not included
@@ -40,38 +22,66 @@
 // TODO Insert C++ class definitions if appropriate
 
 // TODO Insert declarations
-bool espi_op(void);
-inline void espi_wr1(uint8_t byte);
-inline void espi_wr2(uint8_t byte);
-uint8_t espi_rd(void);
-inline void espi_cl(void);
-void inline espi_setInterrupHandler(void (*fun)(void));
-void espi_rst(void);
-void espi_int(bool ie);
-
-// Comment a function and leverage automatic documentation with slash star star
 /**
-    <p><b>Function prototype:</b></p>
-  
-    <p><b>Summary:</b></p>
-
-    <p><b>Description:</b></p>
-
-    <p><b>Precondition:</b></p>
-
-    <p><b>Parameters:</b></p>
-
-    <p><b>Returns:</b></p>
-
-    <p><b>Example:</b></p>
-    <code>
- 
-    </code>
-
-    <p><b>Remarks:</b></p>
+ * Spi open
+ * @details
+ * Opens the spi driver for start communications. It should be called  
+ * before using write and read functions.
+ * @return True if spi is open and false otherwise.
  */
-// TODO Insert declarations or function prototypes (right here) to leverage 
-// live documentation
+bool espi_op(void);
+/**
+ * Spi write thread 1
+ * @details
+ * Thread safe spi write function.
+ * <p> Spi write function to be used in thread 1.</p>
+ * <p> This function write data in spi buffer register, and do not wait for
+ * transmission, than, the user should handle the interrupt or read flags to 
+ * assure the transmission.
+ * @param byte Data to be write
+ */
+inline void espi_wr1(uint8_t byte);
+/**
+ * Spi write thread 2
+ * @details
+ * Thread safe spi write function.
+ * <p> Spi write function to be used in thread 1.</p>
+ * <p> This function write data in spi buffer register, and do not wait for
+ * transmission, than, the user should handle the interrupt or read flags to 
+ * assure the transmission.
+ * @param byte Data to be write
+ */
+inline void espi_wr2(uint8_t byte);
+/**
+ * Spi read function
+ * @details
+ * This function only return the value in spi buffer. It do not block to wait
+ * for data, than, if there is no data received, it will return the last data
+ * on buffer. The user should use interrupt or flags to assure that there is 
+ * new data to read.
+ * @return data um buffer
+ */
+uint8_t espi_rd(void);
+/**
+ * Spi close
+ */
+inline void espi_cl(void);
+/**
+ * Set interrupt function
+ * @param fun Function to handle spi interrupt
+ */
+void inline espi_setInterrupHandler(void (*fun)(void));
+/**
+ * Reset
+ * @details
+ * Reset spi driver data and state.
+ */
+void espi_rst(void);
+/**
+ * Initilize SPI driver
+ * @param ie
+ */
+void espi_int(bool ie);
 
 #ifdef	__cplusplus
 extern "C" {
