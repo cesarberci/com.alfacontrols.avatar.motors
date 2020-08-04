@@ -1,0 +1,467 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F118 `(v ~T0 @X0 0 tf1`a ]
+[v F120 `(v ~T0 @X0 0 tf1`us ]
+[v F42 `(v ~T0 @X0 0 tf2`*S1`a ]
+[v F46 `(v ~T0 @X0 0 tf2`*S1`us ]
+[v F50 `(v ~T0 @X0 0 tf1`*ul ]
+[v F53 `(v ~T0 @X0 0 tf1`*S1 ]
+[v F56 `(v ~T0 @X0 0 tf1`*S1 ]
+[v F59 `(v ~T0 @X0 0 tf1`*S1 ]
+[v F62 `(v ~T0 @X0 0 tf1`*S1 ]
+[v F65 `(v ~T0 @X0 0 tf1`*S1 ]
+[v F68 `(v ~T0 @X0 0 tf1`*S1 ]
+[v F71 `(v ~T0 @X0 0 tf1`a ]
+[v F74 `(v ~T0 @X0 0 tf1`us ]
+"22 DCMotor.c
+[; ;DCMotor.c: 22: DCMotor NewDCMotor(void (*_setDir)(_Bool), void (*_setSpeed)(uint16_t)) {
+[c E34 0 1 2 3 .. ]
+[n E34 MOTORSTATE MOTOR_RUNNING MOTOR_OFF MOTOR_WAITING_OFF MOTOR_WAITING_CHANGE_DIR  ]
+"47 ./DCMotor.h
+[; ;./DCMotor.h: 47:     typedef struct DCMOTOR {
+[s S1 `*F42 1 `*F46 1 `*F50 1 `*F53 1 `*F56 1 `*F59 1 `*F62 1 `*F65 1 `*F68 1 `*F71 1 `*F74 1 `a 1 `a 1 `E34 1 `us 1 `ul 1 `a 1 ]
+[n S1 DCMOTOR setDir setSpeed setTimeBaseCounter stop run accelerate slowDown changeDir tasks hwSetDir hwSetSpeed dir running state speed timer changed ]
+[v F123 `(v ~T0 @X0 0 tf1`a ]
+[v F126 `(v ~T0 @X0 0 tf1`us ]
+"9 DCMotor.c
+[; ;DCMotor.c: 9: static void setDir(DCMotor * this, _Bool dir);
+[v _setDir `(v ~T0 @X0 0 sf2`*S1`a ]
+"10
+[; ;DCMotor.c: 10: static void setSpeed(DCMotor * this, uint16_t speed_X10);
+[v _setSpeed `(v ~T0 @X0 0 sf2`*S1`us ]
+"11
+[; ;DCMotor.c: 11: static void setTimeBaseCounter(uint32_t * timeMillis);
+[v _setTimeBaseCounter `(v ~T0 @X0 0 sf1`*ul ]
+"12
+[; ;DCMotor.c: 12: static void stop(DCMotor * this);
+[v _stop `(v ~T0 @X0 0 sf1`*S1 ]
+"13
+[; ;DCMotor.c: 13: static void run(DCMotor * this);
+[v _run `(v ~T0 @X0 0 sf1`*S1 ]
+"15
+[; ;DCMotor.c: 15: static void accelerate(DCMotor * this);
+[v _accelerate `(v ~T0 @X0 0 sf1`*S1 ]
+"16
+[; ;DCMotor.c: 16: static void slowDown(DCMotor * this);
+[v _slowDown `(v ~T0 @X0 0 sf1`*S1 ]
+"14
+[; ;DCMotor.c: 14: static void changeDir(DCMotor * this);
+[v _changeDir `(v ~T0 @X0 0 sf1`*S1 ]
+"17
+[; ;DCMotor.c: 17: static void tasks(DCMotor * this);
+[v _tasks `(v ~T0 @X0 0 sf1`*S1 ]
+"18
+[; ;DCMotor.c: 18: static uint16_t getHWSpeed(uint16_t speed_X10);
+[v _getHWSpeed `(us ~T0 @X0 0 sf1`us ]
+"20 DCMotor.c
+[; ;DCMotor.c: 20: static uint32_t * timeBase;
+[v _timeBase `*ul ~T0 @X0 1 s ]
+"22
+[; ;DCMotor.c: 22: DCMotor NewDCMotor(void (*_setDir)(_Bool), void (*_setSpeed)(uint16_t)) {
+[v _NewDCMotor `(S1 ~T0 @X0 1 ef2`*F118`*F120 ]
+{
+[e :U _NewDCMotor ]
+[v __setDir `*F123 ~T0 @X0 1 r1 ]
+[v __setSpeed `*F126 ~T0 @X0 1 r2 ]
+[f ]
+[v F128 `S1 ~T0 @X0 1 s ]
+[i F128
+:U ..
+:U ..
+"23
+[; ;DCMotor.c: 23:     DCMotor m = {
+-> -> 0 `i `*F42
+-> -> 0 `i `*F46
+-> -> 0 `i `*F50
+-> -> 0 `i `*F53
+-> -> 0 `i `*F56
+-> -> 0 `i `*F59
+-> -> 0 `i `*F62
+-> -> 0 `i `*F65
+-> -> 0 `i `*F68
+-> -> 0 `i `*F71
+-> -> 0 `i `*F74
+-> -> 0 `i `a
+-> -> 0 `i `a
+-> -> 0 `i `E34
+-> -> 0 `i `us
+-> -> 0 `i `ul
+-> -> 0 `i `a
+..
+..
+]
+[v _m `S1 ~T0 @X0 1 a ]
+[e = _m F128 ]
+[e ; = . _m 0 &U _setDir ; = . _m 1 &U _setSpeed ; = . _m 2 &U _setTimeBaseCounter ; = . _m 3 &U _stop ; = . _m 4 &U _run ; = . _m 5 &U _accelerate ; = . _m 6 &U _slowDown ; = . _m 7 &U _changeDir ; = . _m 8 &U _tasks ; = . _m 9 __setDir ; = . _m 10 __setSpeed ; = . _m 12 -> -> 1 `i `a ; = . _m 13 . `E34 0 ; = . _m 14 -> -> 0 `i `us = . _m 16 -> -> 1 `i `a ]
+"40
+[; ;DCMotor.c: 40:     return m;
+[e ) _m ]
+[e $UE 2  ]
+"41
+[; ;DCMotor.c: 41: }
+[e :UE 2 ]
+}
+"43
+[; ;DCMotor.c: 43: static void setDir(DCMotor * this, _Bool dir) {
+[v _setDir `(v ~T0 @X0 1 sf2`*S1`a ]
+{
+[e :U _setDir ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[v _dir `a ~T0 @X0 1 r2 ]
+[f ]
+"44
+[; ;DCMotor.c: 44:     if (this->dir != dir) {
+[e $ ! != -> . *U _this 11 `i -> _dir `i 4  ]
+{
+"45
+[; ;DCMotor.c: 45:         this->hwSetSpeed(500);
+[e ( *U . *U _this 10 (1 -> -> 500 `i `us ]
+"46
+[; ;DCMotor.c: 46:         this->state = MOTOR_WAITING_OFF;
+[e = . *U _this 13 . `E34 2 ]
+"47
+[; ;DCMotor.c: 47:         this->dir = dir;
+[e = . *U _this 11 _dir ]
+"48
+[; ;DCMotor.c: 48:         this->timer = *timeBase;
+[e = . *U _this 15 *U _timeBase ]
+"49
+[; ;DCMotor.c: 49:     }
+}
+[e :U 4 ]
+"51
+[; ;DCMotor.c: 51: }
+[e :UE 3 ]
+}
+"53
+[; ;DCMotor.c: 53: static void setSpeed(DCMotor * this, uint16_t speed_X10) {
+[v _setSpeed `(v ~T0 @X0 1 sf2`*S1`us ]
+{
+[e :U _setSpeed ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[v _speed_X10 `us ~T0 @X0 1 r2 ]
+[f ]
+"54
+[; ;DCMotor.c: 54:     if (this->speed != speed_X10) {
+[e $ ! != -> . *U _this 14 `ui -> _speed_X10 `ui 6  ]
+{
+"55
+[; ;DCMotor.c: 55:         if (speed_X10 > 1000)
+[e $ ! > -> _speed_X10 `ui -> -> 1000 `i `ui 7  ]
+"56
+[; ;DCMotor.c: 56:             this->speed = 1000;
+[e = . *U _this 14 -> -> 1000 `i `us ]
+[e $U 8  ]
+"57
+[; ;DCMotor.c: 57:         else
+[e :U 7 ]
+"58
+[; ;DCMotor.c: 58:             this->speed = speed_X10;
+[e = . *U _this 14 _speed_X10 ]
+[e :U 8 ]
+"59
+[; ;DCMotor.c: 59:         this->changed = 1;
+[e = . *U _this 16 -> -> 1 `i `a ]
+"60
+[; ;DCMotor.c: 60:     }
+}
+[e :U 6 ]
+"61
+[; ;DCMotor.c: 61: }
+[e :UE 5 ]
+}
+"63
+[; ;DCMotor.c: 63: static void setTimeBaseCounter(uint32_t * timeMillis) {
+[v _setTimeBaseCounter `(v ~T0 @X0 1 sf1`*ul ]
+{
+[e :U _setTimeBaseCounter ]
+[v _timeMillis `*ul ~T0 @X0 1 r1 ]
+[f ]
+"64
+[; ;DCMotor.c: 64:     timeBase = timeMillis;
+[e = _timeBase _timeMillis ]
+"65
+[; ;DCMotor.c: 65: }
+[e :UE 9 ]
+}
+"67
+[; ;DCMotor.c: 67: static void stop(DCMotor * this) {
+[v _stop `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _stop ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"68
+[; ;DCMotor.c: 68:     this->running = 0;
+[e = . *U _this 12 -> -> 0 `i `a ]
+"69
+[; ;DCMotor.c: 69: }
+[e :UE 10 ]
+}
+"71
+[; ;DCMotor.c: 71: static void run(DCMotor * this) {
+[v _run `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _run ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"72
+[; ;DCMotor.c: 72:     this->running = 1;
+[e = . *U _this 12 -> -> 1 `i `a ]
+"73
+[; ;DCMotor.c: 73: }
+[e :UE 11 ]
+}
+"75
+[; ;DCMotor.c: 75: static void changeDir(DCMotor * this) {
+[v _changeDir `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _changeDir ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"76
+[; ;DCMotor.c: 76:     this->setDir(this, !this->dir);
+[e ( *U . *U _this 0 (2 , _this -> -> ! != -> . *U _this 11 `i -> 0 `i `i `a ]
+"77
+[; ;DCMotor.c: 77: }
+[e :UE 12 ]
+}
+"79
+[; ;DCMotor.c: 79: static void accelerate(DCMotor * this) {
+[v _accelerate `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _accelerate ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"80
+[; ;DCMotor.c: 80:     if (this->speed < 1000) {
+[e $ ! < -> . *U _this 14 `ui -> -> 1000 `i `ui 14  ]
+{
+"81
+[; ;DCMotor.c: 81:         this->speed += 10;
+[e =+ . *U _this 14 -> -> 10 `i `us ]
+"82
+[; ;DCMotor.c: 82:         if (this->speed > 1000)
+[e $ ! > -> . *U _this 14 `ui -> -> 1000 `i `ui 15  ]
+"83
+[; ;DCMotor.c: 83:             this->speed = 1000;
+[e = . *U _this 14 -> -> 1000 `i `us ]
+[e :U 15 ]
+"84
+[; ;DCMotor.c: 84:         this->changed = 1;
+[e = . *U _this 16 -> -> 1 `i `a ]
+"85
+[; ;DCMotor.c: 85:     }
+}
+[e :U 14 ]
+"86
+[; ;DCMotor.c: 86: }
+[e :UE 13 ]
+}
+"88
+[; ;DCMotor.c: 88: static void slowDown(DCMotor * this) {
+[v _slowDown `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _slowDown ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"89
+[; ;DCMotor.c: 89:     if (this->speed > 0) {
+[e $ ! > -> . *U _this 14 `ui -> -> 0 `i `ui 17  ]
+{
+"90
+[; ;DCMotor.c: 90:         if (this->speed > 10)
+[e $ ! > -> . *U _this 14 `ui -> -> 10 `i `ui 18  ]
+"91
+[; ;DCMotor.c: 91:             this->speed -= 10;
+[e =- . *U _this 14 -> -> 10 `i `us ]
+[e $U 19  ]
+"92
+[; ;DCMotor.c: 92:         else
+[e :U 18 ]
+"93
+[; ;DCMotor.c: 93:             this->speed = 0;
+[e = . *U _this 14 -> -> 0 `i `us ]
+[e :U 19 ]
+"94
+[; ;DCMotor.c: 94:         this->changed = 1;
+[e = . *U _this 16 -> -> 1 `i `a ]
+"95
+[; ;DCMotor.c: 95:     }
+}
+[e :U 17 ]
+"96
+[; ;DCMotor.c: 96: }
+[e :UE 16 ]
+}
+"98
+[; ;DCMotor.c: 98: static void tasks(DCMotor * this) {
+[v _tasks `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _tasks ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"99
+[; ;DCMotor.c: 99:     switch (this->state) {
+[e $U 22  ]
+{
+"100
+[; ;DCMotor.c: 100:         case MOTOR_RUNNING:
+[e :U 23 ]
+"101
+[; ;DCMotor.c: 101:             if (!this->running) {
+[e $ ! ! != -> . *U _this 12 `i -> 0 `i 24  ]
+{
+"102
+[; ;DCMotor.c: 102:                 this->hwSetSpeed(500);
+[e ( *U . *U _this 10 (1 -> -> 500 `i `us ]
+"103
+[; ;DCMotor.c: 103:                 this->state = MOTOR_OFF;
+[e = . *U _this 13 . `E34 1 ]
+"104
+[; ;DCMotor.c: 104:             } else if (this->changed) {
+}
+[e $U 25  ]
+[e :U 24 ]
+[e $ ! != -> . *U _this 16 `i -> 0 `i 26  ]
+{
+"105
+[; ;DCMotor.c: 105:                 this->changed = 0;
+[e = . *U _this 16 -> -> 0 `i `a ]
+"106
+[; ;DCMotor.c: 106:                 this->hwSetSpeed(getHWSpeed(this->speed));
+[e ( *U . *U _this 10 (1 ( _getHWSpeed (1 . *U _this 14 ]
+"107
+[; ;DCMotor.c: 107:             }
+}
+[e :U 26 ]
+[e :U 25 ]
+"108
+[; ;DCMotor.c: 108:             break;
+[e $U 21  ]
+"109
+[; ;DCMotor.c: 109:         case MOTOR_OFF:
+[e :U 27 ]
+"110
+[; ;DCMotor.c: 110:             if (this->running) {
+[e $ ! != -> . *U _this 12 `i -> 0 `i 28  ]
+{
+"111
+[; ;DCMotor.c: 111:                 this->hwSetSpeed(getHWSpeed(this->speed));
+[e ( *U . *U _this 10 (1 ( _getHWSpeed (1 . *U _this 14 ]
+"112
+[; ;DCMotor.c: 112:                 this->state = MOTOR_RUNNING;
+[e = . *U _this 13 . `E34 0 ]
+"113
+[; ;DCMotor.c: 113:             }
+}
+[e :U 28 ]
+"114
+[; ;DCMotor.c: 114:             break;
+[e $U 21  ]
+"115
+[; ;DCMotor.c: 115:         case MOTOR_WAITING_OFF:
+[e :U 29 ]
+"116
+[; ;DCMotor.c: 116:             if ((*timeBase - this->timer) > 2) {
+[e $ ! > - *U _timeBase . *U _this 15 -> -> -> 2 `i `l `ul 30  ]
+{
+"117
+[; ;DCMotor.c: 117:                 this->hwSetDir(this->dir);
+[e ( *U . *U _this 9 (1 . *U _this 11 ]
+"118
+[; ;DCMotor.c: 118:                 this->timer = *timeBase;
+[e = . *U _this 15 *U _timeBase ]
+"119
+[; ;DCMotor.c: 119:                 this->state = MOTOR_WAITING_CHANGE_DIR;
+[e = . *U _this 13 . `E34 3 ]
+"120
+[; ;DCMotor.c: 120:             }
+}
+[e :U 30 ]
+"121
+[; ;DCMotor.c: 121:             break;
+[e $U 21  ]
+"122
+[; ;DCMotor.c: 122:         case MOTOR_WAITING_CHANGE_DIR:
+[e :U 31 ]
+"123
+[; ;DCMotor.c: 123:             if ((*timeBase - this->timer) > 2)
+[e $ ! > - *U _timeBase . *U _this 15 -> -> -> 2 `i `l `ul 32  ]
+"124
+[; ;DCMotor.c: 124:                 this->state = MOTOR_OFF;
+[e = . *U _this 13 . `E34 1 ]
+[e :U 32 ]
+"125
+[; ;DCMotor.c: 125:             break;
+[e $U 21  ]
+"126
+[; ;DCMotor.c: 126:     }
+}
+[e $U 21  ]
+[e :U 22 ]
+[e [\ -> . *U _this 13 `ui , $ -> . `E34 0 `ui 23
+ , $ -> . `E34 1 `ui 27
+ , $ -> . `E34 2 `ui 29
+ , $ -> . `E34 3 `ui 31
+ 21 ]
+[e :U 21 ]
+"127
+[; ;DCMotor.c: 127: }
+[e :UE 20 ]
+}
+"129
+[; ;DCMotor.c: 129: static uint16_t getHWSpeed(uint16_t speed_X10) {
+[v _getHWSpeed `(us ~T0 @X0 1 sf1`us ]
+{
+[e :U _getHWSpeed ]
+[v _speed_X10 `us ~T0 @X0 1 r1 ]
+[f ]
+"130
+[; ;DCMotor.c: 130:     if (speed_X10 > 950)
+[e $ ! > -> _speed_X10 `ui -> -> 950 `i `ui 34  ]
+"131
+[; ;DCMotor.c: 131:         return 0;
+[e ) -> -> 0 `i `us ]
+[e $UE 33  ]
+[e $U 35  ]
+"132
+[; ;DCMotor.c: 132:     else if (speed_X10 < 200)
+[e :U 34 ]
+[e $ ! < -> _speed_X10 `ui -> -> 200 `i `ui 36  ]
+"133
+[; ;DCMotor.c: 133:         return 500;
+[e ) -> -> 500 `i `us ]
+[e $UE 33  ]
+[e $U 37  ]
+"134
+[; ;DCMotor.c: 134:     else {
+[e :U 36 ]
+{
+"135
+[; ;DCMotor.c: 135:         int32_t sp;
+[v _sp `l ~T0 @X0 1 a ]
+"136
+[; ;DCMotor.c: 136:         sp = (0 - 500);
+[e = _sp -> - -> 0 `i -> 500 `i `l ]
+"137
+[; ;DCMotor.c: 137:         sp *= (int16_t) speed_X10;
+[e =* _sp -> -> _speed_X10 `s `l ]
+"138
+[; ;DCMotor.c: 138:         sp = sp / 1000;
+[e = _sp / _sp -> -> 1000 `i `l ]
+"139
+[; ;DCMotor.c: 139:         sp += 500;
+[e =+ _sp -> -> 500 `i `l ]
+"140
+[; ;DCMotor.c: 140:         return (uint16_t) sp;
+[e ) -> _sp `us ]
+[e $UE 33  ]
+"141
+[; ;DCMotor.c: 141:     }
+}
+[e :U 37 ]
+[e :U 35 ]
+"143
+[; ;DCMotor.c: 143: }
+[e :UE 33 ]
+}

@@ -1,0 +1,349 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F39 `(a ~T0 @X0 0 tf1`*S1 ]
+[v F42 `(v ~T0 @X0 0 tf1`*S1 ]
+[v F47 `(v ~T0 @X0 0 tf ]
+[v F45 `(v ~T0 @X0 0 tf2`*S1`*F47 ]
+[v F50 `(v ~T0 @X0 0 tf ]
+"43 ./TimeSystem.h
+[; ;./TimeSystem.h: 43:     typedef struct TIMER {
+[s S1 `uo 1 `a 1 `*F39 1 `*F42 1 `*F45 1 `*F50 1 `uo 1 `a 1 `a 1 ]
+[n S1 TIMER time autoReset isDone reset setCallback callBack start active done ]
+[v F58 `(v ~T0 @X0 0 tf ]
+[v F60 `(v ~T0 @X0 0 tf ]
+[v F62 `(v ~T0 @X0 0 tf1`*S1 ]
+[v F65 `(v ~T0 @X0 0 tf1`*S1 ]
+"82
+[; ;./TimeSystem.h: 82:     typedef struct TIMESYSTEM {
+[s S2 `uo 1 `*F58 1 `*F60 1 `*F62 1 `*F65 1 ]
+[n S2 TIMESYSTEM currentTimeMillis updateMillis tasks addTimer removeTimer ]
+"8 TimeSystem.c
+[; ;TimeSystem.c: 8: static void updateMillis(void);
+[v _updateMillis `(v ~T0 @X0 0 sf ]
+[v F94 `(v ~T0 @X0 0 tf ]
+"11
+[; ;TimeSystem.c: 11: static void addTimer(Timer * timer);
+[v _addTimer `(v ~T0 @X0 0 sf1`*S1 ]
+"12
+[; ;TimeSystem.c: 12: static void removeTimer(Timer * timer);
+[v _removeTimer `(v ~T0 @X0 0 sf1`*S1 ]
+[v F101 `(v ~T0 @X0 0 tf ]
+"9
+[; ;TimeSystem.c: 9: static void tasks(void);
+[v _tasks `(v ~T0 @X0 0 sf ]
+[v F109 `(v ~T0 @X0 0 tf ]
+"13
+[; ;TimeSystem.c: 13: static _Bool isDone(Timer * this);
+[v _isDone `(a ~T0 @X0 0 sf1`*S1 ]
+"10
+[; ;TimeSystem.c: 10: static void resetTimer(Timer * this);
+[v _resetTimer `(v ~T0 @X0 0 sf1`*S1 ]
+[v F85 `(v ~T0 @X0 0 tf ]
+"14
+[; ;TimeSystem.c: 14: static void setCallback(Timer * this, void (*callback)(void));
+[v _setCallback `(v ~T0 @X0 0 sf2`*S1`*F85 ]
+[v F152 `(v ~T0 @X0 0 tf ]
+[v F155 `(v ~T0 @X0 0 tf ]
+"15 TimeSystem.c
+[; ;TimeSystem.c: 15: static uint32_t * currentTimeMillis;
+[v _currentTimeMillis `*ul ~T0 @X0 1 s ]
+"21
+[; ;TimeSystem.c: 21: static Timer * timers[5];
+[v _timers `*S1 ~T0 @X0 -> 5 `i s ]
+"23
+[; ;TimeSystem.c: 23: static uint8_t nTimers = 0;
+[v _nTimers `uc ~T0 @X0 1 s ]
+[i _nTimers
+-> -> 0 `i `uc
+]
+"24
+[; ;TimeSystem.c: 24: static TimeSystem instance = {
+[v _instance `S2 ~T0 @X0 1 s ]
+[i _instance
+:U ..
+:U ..
+-> -> -> 0 `i `o `uo
+&U _updateMillis
+-> -> 0 `i `*F94
+&U _addTimer
+&U _removeTimer
+..
+..
+]
+"36
+[; ;TimeSystem.c: 36: TimeSystem *GetTimeSystemInstance(void) {
+[v _GetTimeSystemInstance `(*S2 ~T0 @X0 1 ef ]
+{
+[e :U _GetTimeSystemInstance ]
+[f ]
+"37
+[; ;TimeSystem.c: 37:     if (instance.tasks == 0) {
+[e $ ! == . _instance 2 -> -> 0 `i `*F101 4  ]
+{
+"38
+[; ;TimeSystem.c: 38:         instance.tasks = tasks;
+[e = . _instance 2 &U _tasks ]
+"39
+[; ;TimeSystem.c: 39:     }
+}
+[e :U 4 ]
+"40
+[; ;TimeSystem.c: 40:     return &instance;
+[e ) &U _instance ]
+[e $UE 3  ]
+"41
+[; ;TimeSystem.c: 41: }
+[e :UE 3 ]
+}
+"47
+[; ;TimeSystem.c: 47: static void updateMillis(void) {
+[v _updateMillis `(v ~T0 @X0 1 sf ]
+{
+[e :U _updateMillis ]
+[f ]
+"48
+[; ;TimeSystem.c: 48:     instance.currentTimeMillis++;
+[e ++ . _instance 0 -> -> -> 1 `i `o `uo ]
+"49
+[; ;TimeSystem.c: 49: }
+[e :UE 5 ]
+}
+"51
+[; ;TimeSystem.c: 51: static void tasks(void) {
+[v _tasks `(v ~T0 @X0 1 sf ]
+{
+[e :U _tasks ]
+[f ]
+"52
+[; ;TimeSystem.c: 52:     for (uint8_t i = 0; i < nTimers; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 10  ]
+[e :U 7 ]
+{
+"53
+[; ;TimeSystem.c: 53:         if (!timers[i]->done) {
+[e $ ! ! != -> . *U *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux 8 `i -> 0 `i 11  ]
+{
+"54
+[; ;TimeSystem.c: 54:             if ((instance.currentTimeMillis - timers[i]->start) >= timers[i]->time) {
+[e $ ! >= - . _instance 0 . *U *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux 6 . *U *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux 0 12  ]
+{
+"55
+[; ;TimeSystem.c: 55:                 timers[i]->done = 1;
+[e = . *U *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux 8 -> -> 1 `i `a ]
+"56
+[; ;TimeSystem.c: 56:                 if (timers[i]->callBack > 0) {
+[e $ ! > . *U *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux 5 -> -> 0 `i `*F109 13  ]
+{
+"57
+[; ;TimeSystem.c: 57:                     timers[i]->isDone(timers[i]);
+[e ( *U . *U *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux 2 (1 *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux ]
+"58
+[; ;TimeSystem.c: 58:                     timers[i]->callBack();
+[e ( *U . *U *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux 5 ..  ]
+"59
+[; ;TimeSystem.c: 59:                 }
+}
+[e :U 13 ]
+"60
+[; ;TimeSystem.c: 60:             }
+}
+[e :U 12 ]
+"61
+[; ;TimeSystem.c: 61:         }
+}
+[e :U 11 ]
+"63
+[; ;TimeSystem.c: 63:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 10 ]
+[e $ < -> _i `i -> _nTimers `i 7  ]
+[e :U 8 ]
+}
+"64
+[; ;TimeSystem.c: 64: }
+[e :UE 6 ]
+}
+"66
+[; ;TimeSystem.c: 66: static void addTimer(Timer * timer) {
+[v _addTimer `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _addTimer ]
+[v _timer `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"67
+[; ;TimeSystem.c: 67:     timers[nTimers] = timer;
+[e = *U + &U _timers * -> _nTimers `ux -> -> # *U &U _timers `ui `ux _timer ]
+"68
+[; ;TimeSystem.c: 68:     nTimers++;
+[e ++ _nTimers -> -> 1 `i `uc ]
+"69
+[; ;TimeSystem.c: 69: }
+[e :UE 14 ]
+}
+"71
+[; ;TimeSystem.c: 71: static void removeTimer(Timer * timer) {
+[v _removeTimer `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _removeTimer ]
+[v _timer `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"72
+[; ;TimeSystem.c: 72:     for (size_t i = 0; i < nTimers; i++) {
+{
+[v _i `ui ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 19  ]
+[e :U 16 ]
+{
+"73
+[; ;TimeSystem.c: 73:         if (timers[i] == timer) {
+[e $ ! == *U + &U _timers * -> _i `ux -> -> # *U &U _timers `ui `ux _timer 20  ]
+{
+"74
+[; ;TimeSystem.c: 74:             nTimers--;
+[e -- _nTimers -> -> 1 `i `uc ]
+"75
+[; ;TimeSystem.c: 75:             for (size_t j = i; j < nTimers; j++)
+{
+[v _j `ui ~T0 @X0 1 a ]
+[e = _j _i ]
+[e $U 24  ]
+[e :U 21 ]
+"76
+[; ;TimeSystem.c: 76:                 timers[j] = timers[j + 1];
+[e = *U + &U _timers * -> _j `ux -> -> # *U &U _timers `ui `ux *U + &U _timers * -> + _j -> -> 1 `i `ui `ux -> -> # *U &U _timers `ui `ux ]
+[e ++ _j -> -> 1 `i `ui ]
+[e :U 24 ]
+[e $ < _j -> _nTimers `ui 21  ]
+[e :U 22 ]
+}
+"77
+[; ;TimeSystem.c: 77:             return;
+[e $UE 15  ]
+"78
+[; ;TimeSystem.c: 78:         }
+}
+[e :U 20 ]
+"79
+[; ;TimeSystem.c: 79:     }
+}
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 19 ]
+[e $ < _i -> _nTimers `ui 16  ]
+[e :U 17 ]
+}
+"80
+[; ;TimeSystem.c: 80: }
+[e :UE 15 ]
+}
+"86
+[; ;TimeSystem.c: 86: Timer NewTimer(timeMillis time) {
+[v _NewTimer `(S1 ~T0 @X0 1 ef1`uo ]
+{
+[e :U _NewTimer ]
+[v _time `uo ~T0 @X0 1 r1 ]
+[f ]
+[v F121 `S1 ~T0 @X0 1 s ]
+[i F121
+:U ..
+:U ..
+"87
+[; ;TimeSystem.c: 87:     Timer tmr = {
+-> -> 0 `i `uo
+-> -> 0 `i `a
+-> -> 0 `i `*F39
+-> -> 0 `i `*F42
+-> -> 0 `i `*F45
+-> -> 0 `i `*F50
+-> -> 0 `i `uo
+-> -> 0 `i `a
+-> -> 0 `i `a
+..
+..
+]
+[v _tmr `S1 ~T0 @X0 1 a ]
+[e = _tmr F121 ]
+[e ; = . _tmr 0 _time ; = . _tmr 1 -> -> 1 `i `a ; = . _tmr 2 &U _isDone ; = . _tmr 3 &U _resetTimer ; = . _tmr 4 &U _setCallback ; = . _tmr 6 . _instance 0 = . _tmr 8 -> -> 0 `i `a ]
+"96
+[; ;TimeSystem.c: 96:     return tmr;
+[e ) _tmr ]
+[e $UE 25  ]
+"97
+[; ;TimeSystem.c: 97: }
+[e :UE 25 ]
+}
+"99
+[; ;TimeSystem.c: 99: static void resetTimer(Timer * this) {
+[v _resetTimer `(v ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _resetTimer ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"100
+[; ;TimeSystem.c: 100:     this->start = instance.currentTimeMillis;
+[e = . *U _this 6 . _instance 0 ]
+"101
+[; ;TimeSystem.c: 101:     this->active = 1;
+[e = . *U _this 7 -> -> 1 `i `a ]
+"102
+[; ;TimeSystem.c: 102: }
+[e :UE 26 ]
+}
+"104
+[; ;TimeSystem.c: 104: static _Bool isDone(Timer * this) {
+[v _isDone `(a ~T0 @X0 1 sf1`*S1 ]
+{
+[e :U _isDone ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"105
+[; ;TimeSystem.c: 105:     if (this->done) {
+[e $ ! != -> . *U _this 8 `i -> 0 `i 28  ]
+{
+"106
+[; ;TimeSystem.c: 106:         this->active = 0;
+[e = . *U _this 7 -> -> 0 `i `a ]
+"107
+[; ;TimeSystem.c: 107:         if (this->autoReset)
+[e $ ! != -> . *U _this 1 `i -> 0 `i 29  ]
+"108
+[; ;TimeSystem.c: 108:             resetTimer(this);
+[e ( _resetTimer (1 _this ]
+[e :U 29 ]
+"109
+[; ;TimeSystem.c: 109:         this->done = 0;
+[e = . *U _this 8 -> -> 0 `i `a ]
+"110
+[; ;TimeSystem.c: 110:         return 1;
+[e ) -> -> 1 `i `a ]
+[e $UE 27  ]
+"111
+[; ;TimeSystem.c: 111:     }
+}
+[e :U 28 ]
+"112
+[; ;TimeSystem.c: 112:     return 0;
+[e ) -> -> 0 `i `a ]
+[e $UE 27  ]
+"113
+[; ;TimeSystem.c: 113: }
+[e :UE 27 ]
+}
+"115
+[; ;TimeSystem.c: 115: static void setCallback(Timer * this, void (*callback)(void)) {
+[v _setCallback `(v ~T0 @X0 1 sf2`*S1`*F152 ]
+{
+[e :U _setCallback ]
+[v _this `*S1 ~T0 @X0 1 r1 ]
+[v _callback `*F155 ~T0 @X0 1 r2 ]
+[f ]
+"116
+[; ;TimeSystem.c: 116:     this->callBack = callback;
+[e = . *U _this 5 _callback ]
+"117
+[; ;TimeSystem.c: 117: }
+[e :UE 30 ]
+}

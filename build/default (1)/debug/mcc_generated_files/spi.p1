@@ -1,0 +1,895 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F359 `(v ~T0 @X0 0 tf ]
+"50 mcc_generated_files/spi.c
+[; ;mcc_generated_files/spi.c: 50: typedef struct {
+[s S330 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S330 . con1 stat add operation ]
+"3507 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3507: extern volatile unsigned char SSP1STAT __attribute__((address(0x214)));
+[v _SSP1STAT `Vuc ~T0 @X0 0 e@532 ]
+"3629
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3629: extern volatile unsigned char SSP1CON1 __attribute__((address(0x215)));
+[v _SSP1CON1 `Vuc ~T0 @X0 0 e@533 ]
+"3431
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3431: extern volatile unsigned char SSP1ADD __attribute__((address(0x212)));
+[v _SSP1ADD `Vuc ~T0 @X0 0 e@530 ]
+"1214
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1214:     struct {
+[s S75 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S75 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
+"1213
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1213: typedef union {
+[u S74 `S75 1 ]
+[n S74 . . ]
+"1225
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1225: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x091)));
+[v _PIE1bits `VS74 ~T0 @X0 0 e@145 ]
+[v F380 `(v ~T0 @X0 0 tf ]
+"77 mcc_generated_files/spi.h
+[; ;mcc_generated_files/spi.h: 77: void SPI_SetInterruptHandler(spiInterruptHandler_t handler);
+[v _SPI_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F380 ]
+"76
+[; ;mcc_generated_files/spi.h: 76: void SPI_Isr(void);
+[v _SPI_Isr `(v ~T0 @X0 0 ef ]
+"1164 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1164:     struct {
+[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S73 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 ]
+"1163
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1163: typedef union {
+[u S72 `S73 1 ]
+[n S72 . . ]
+"1173
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1173: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x08E)));
+[v _TRISCbits `VS72 ~T0 @X0 0 e@142 ]
+"3644
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3644:     struct {
+[s S199 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S199 . SSPM0 SSPM1 SSPM2 SSPM3 CKP SSPEN SSPOV WCOL ]
+"3654
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3654:     struct {
+[s S200 :4 `uc 1 ]
+[n S200 . SSPM ]
+"3643
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3643: typedef union {
+[u S198 `S199 1 `S200 1 ]
+[n S198 . . . ]
+"3658
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3658: extern volatile SSP1CON1bits_t SSP1CON1bits __attribute__((address(0x215)));
+[v _SSP1CON1bits `VS198 ~T0 @X0 0 e@533 ]
+"74 mcc_generated_files/spi.c
+[; ;mcc_generated_files/spi.c: 74: _Bool SPI_Open(spi_modes_t spiUniqueConfiguration)
+[c E353 0 .. ]
+[n E353 . SPI_DEFAULT  ]
+"3833 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3833: extern volatile unsigned char SSP1CON2 __attribute__((address(0x216)));
+[v _SSP1CON2 `Vuc ~T0 @X0 0 e@534 ]
+"3393
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3393: extern volatile unsigned char SSP1BUF __attribute__((address(0x211)));
+[v _SSP1BUF `Vuc ~T0 @X0 0 e@529 ]
+"535
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 535:     struct {
+[s S40 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S40 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
+"534
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 534: typedef union {
+[u S39 `S40 1 ]
+[n S39 . . ]
+"546
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 546: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x011)));
+[v _PIR1bits `VS39 ~T0 @X0 0 e@17 ]
+[v F2719 `(v ~T0 @X0 0 tf ]
+[v F2721 `(v ~T0 @X0 0 tf ]
+[v F2723 `(v ~T0 @X0 0 tf ]
+"65 mcc_generated_files/spi.h
+[; ;mcc_generated_files/spi.h: 65: void (*MSSP_InterruptHandler)(void);
+[v _MSSP_InterruptHandler `*F359 ~T0 @X0 1 e ]
+"54 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 54: __asm("INDF0 equ 00h");
+[; <" INDF0 equ 00h ;# ">
+"74
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 74: __asm("INDF1 equ 01h");
+[; <" INDF1 equ 01h ;# ">
+"94
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 94: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"114
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 114: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"177
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 177: __asm("FSR0L equ 04h");
+[; <" FSR0L equ 04h ;# ">
+"197
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 197: __asm("FSR0H equ 05h");
+[; <" FSR0H equ 05h ;# ">
+"221
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 221: __asm("FSR1L equ 06h");
+[; <" FSR1L equ 06h ;# ">
+"241
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 241: __asm("FSR1H equ 07h");
+[; <" FSR1H equ 07h ;# ">
+"261
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 261: __asm("BSR equ 08h");
+[; <" BSR equ 08h ;# ">
+"313
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 313: __asm("WREG equ 09h");
+[; <" WREG equ 09h ;# ">
+"333
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 333: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"353
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 353: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"431
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 431: __asm("PORTA equ 0Ch");
+[; <" PORTA equ 0Ch ;# ">
+"481
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 481: __asm("PORTC equ 0Eh");
+[; <" PORTC equ 0Eh ;# ">
+"531
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 531: __asm("PIR1 equ 011h");
+[; <" PIR1 equ 011h ;# ">
+"593
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 593: __asm("PIR2 equ 012h");
+[; <" PIR2 equ 012h ;# ">
+"644
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 644: __asm("PIR3 equ 013h");
+[; <" PIR3 equ 013h ;# ">
+"684
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 684: __asm("TMR0 equ 015h");
+[; <" TMR0 equ 015h ;# ">
+"704
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 704: __asm("TMR1 equ 016h");
+[; <" TMR1 equ 016h ;# ">
+"711
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 711: __asm("TMR1L equ 016h");
+[; <" TMR1L equ 016h ;# ">
+"731
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 731: __asm("TMR1H equ 017h");
+[; <" TMR1H equ 017h ;# ">
+"751
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 751: __asm("T1CON equ 018h");
+[; <" T1CON equ 018h ;# ">
+"823
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 823: __asm("T1GCON equ 019h");
+[; <" T1GCON equ 019h ;# ">
+"893
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 893: __asm("TMR2 equ 01Ah");
+[; <" TMR2 equ 01Ah ;# ">
+"913
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 913: __asm("PR2 equ 01Bh");
+[; <" PR2 equ 01Bh ;# ">
+"933
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 933: __asm("T2CON equ 01Ch");
+[; <" T2CON equ 01Ch ;# ">
+"1004
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1004: __asm("CPSCON0 equ 01Eh");
+[; <" CPSCON0 equ 01Eh ;# ">
+"1064
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1064: __asm("CPSCON1 equ 01Fh");
+[; <" CPSCON1 equ 01Fh ;# ">
+"1110
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1110: __asm("TRISA equ 08Ch");
+[; <" TRISA equ 08Ch ;# ">
+"1160
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1160: __asm("TRISC equ 08Eh");
+[; <" TRISC equ 08Eh ;# ">
+"1210
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1210: __asm("PIE1 equ 091h");
+[; <" PIE1 equ 091h ;# ">
+"1272
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1272: __asm("PIE2 equ 092h");
+[; <" PIE2 equ 092h ;# ">
+"1323
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1323: __asm("PIE3 equ 093h");
+[; <" PIE3 equ 093h ;# ">
+"1363
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1363: __asm("OPTION_REG equ 095h");
+[; <" OPTION_REG equ 095h ;# ">
+"1446
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1446: __asm("PCON equ 096h");
+[; <" PCON equ 096h ;# ">
+"1497
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1497: __asm("WDTCON equ 097h");
+[; <" WDTCON equ 097h ;# ">
+"1556
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1556: __asm("OSCTUNE equ 098h");
+[; <" OSCTUNE equ 098h ;# ">
+"1614
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1614: __asm("OSCCON equ 099h");
+[; <" OSCCON equ 099h ;# ">
+"1686
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1686: __asm("OSCSTAT equ 09Ah");
+[; <" OSCSTAT equ 09Ah ;# ">
+"1748
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1748: __asm("ADRES equ 09Bh");
+[; <" ADRES equ 09Bh ;# ">
+"1755
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1755: __asm("ADRESL equ 09Bh");
+[; <" ADRESL equ 09Bh ;# ">
+"1775
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1775: __asm("ADRESH equ 09Ch");
+[; <" ADRESH equ 09Ch ;# ">
+"1795
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1795: __asm("ADCON0 equ 09Dh");
+[; <" ADCON0 equ 09Dh ;# ">
+"1875
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1875: __asm("ADCON1 equ 09Eh");
+[; <" ADCON1 equ 09Eh ;# ">
+"1947
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1947: __asm("LATA equ 010Ch");
+[; <" LATA equ 010Ch ;# ">
+"1992
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 1992: __asm("LATC equ 010Eh");
+[; <" LATC equ 010Eh ;# ">
+"2042
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2042: __asm("CM1CON0 equ 0111h");
+[; <" CM1CON0 equ 0111h ;# ">
+"2099
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2099: __asm("CM1CON1 equ 0112h");
+[; <" CM1CON1 equ 0112h ;# ">
+"2165
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2165: __asm("CM2CON0 equ 0113h");
+[; <" CM2CON0 equ 0113h ;# ">
+"2222
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2222: __asm("CM2CON1 equ 0114h");
+[; <" CM2CON1 equ 0114h ;# ">
+"2288
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2288: __asm("CMOUT equ 0115h");
+[; <" CMOUT equ 0115h ;# ">
+"2314
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2314: __asm("BORCON equ 0116h");
+[; <" BORCON equ 0116h ;# ">
+"2341
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2341: __asm("FVRCON equ 0117h");
+[; <" FVRCON equ 0117h ;# ">
+"2417
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2417: __asm("DACCON0 equ 0118h");
+[; <" DACCON0 equ 0118h ;# ">
+"2478
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2478: __asm("DACCON1 equ 0119h");
+[; <" DACCON1 equ 0119h ;# ">
+"2530
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2530: __asm("SRCON0 equ 011Ah");
+[; <" SRCON0 equ 011Ah ;# ">
+"2601
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2601: __asm("SRCON1 equ 011Bh");
+[; <" SRCON1 equ 011Bh ;# ">
+"2653
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2653: __asm("APFCON0 equ 011Dh");
+[; <" APFCON0 equ 011Dh ;# ">
+"2699
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2699: __asm("APFCON1 equ 011Eh");
+[; <" APFCON1 equ 011Eh ;# ">
+"2737
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2737: __asm("ANSELA equ 018Ch");
+[; <" ANSELA equ 018Ch ;# ">
+"2784
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2784: __asm("ANSELC equ 018Eh");
+[; <" ANSELC equ 018Eh ;# ">
+"2830
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2830: __asm("EEADR equ 0191h");
+[; <" EEADR equ 0191h ;# ">
+"2837
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2837: __asm("EEADRL equ 0191h");
+[; <" EEADRL equ 0191h ;# ">
+"2857
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2857: __asm("EEADRH equ 0192h");
+[; <" EEADRH equ 0192h ;# ">
+"2877
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2877: __asm("EEDAT equ 0193h");
+[; <" EEDAT equ 0193h ;# ">
+"2884
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2884: __asm("EEDATL equ 0193h");
+[; <" EEDATL equ 0193h ;# ">
+"2889
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2889: __asm("EEDATA equ 0193h");
+[; <" EEDATA equ 0193h ;# ">
+"2922
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2922: __asm("EEDATH equ 0194h");
+[; <" EEDATH equ 0194h ;# ">
+"2942
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 2942: __asm("EECON1 equ 0195h");
+[; <" EECON1 equ 0195h ;# ">
+"3004
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3004: __asm("EECON2 equ 0196h");
+[; <" EECON2 equ 0196h ;# ">
+"3024
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3024: __asm("RCREG equ 0199h");
+[; <" RCREG equ 0199h ;# ">
+"3044
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3044: __asm("TXREG equ 019Ah");
+[; <" TXREG equ 019Ah ;# ">
+"3064
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3064: __asm("SPBRG equ 019Bh");
+[; <" SPBRG equ 019Bh ;# ">
+"3071
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3071: __asm("SPBRGL equ 019Bh");
+[; <" SPBRGL equ 019Bh ;# ">
+"3091
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3091: __asm("SPBRGH equ 019Ch");
+[; <" SPBRGH equ 019Ch ;# ">
+"3111
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3111: __asm("RCSTA equ 019Dh");
+[; <" RCSTA equ 019Dh ;# ">
+"3173
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3173: __asm("TXSTA equ 019Eh");
+[; <" TXSTA equ 019Eh ;# ">
+"3235
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3235: __asm("BAUDCON equ 019Fh");
+[; <" BAUDCON equ 019Fh ;# ">
+"3287
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3287: __asm("WPUA equ 020Ch");
+[; <" WPUA equ 020Ch ;# ">
+"3345
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3345: __asm("WPUC equ 020Eh");
+[; <" WPUC equ 020Eh ;# ">
+"3395
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3395: __asm("SSP1BUF equ 0211h");
+[; <" SSP1BUF equ 0211h ;# ">
+"3400
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3400: __asm("SSPBUF equ 0211h");
+[; <" SSPBUF equ 0211h ;# ">
+"3433
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3433: __asm("SSP1ADD equ 0212h");
+[; <" SSP1ADD equ 0212h ;# ">
+"3438
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3438: __asm("SSPADD equ 0212h");
+[; <" SSPADD equ 0212h ;# ">
+"3471
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3471: __asm("SSP1MSK equ 0213h");
+[; <" SSP1MSK equ 0213h ;# ">
+"3476
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3476: __asm("SSPMSK equ 0213h");
+[; <" SSPMSK equ 0213h ;# ">
+"3509
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3509: __asm("SSP1STAT equ 0214h");
+[; <" SSP1STAT equ 0214h ;# ">
+"3514
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3514: __asm("SSPSTAT equ 0214h");
+[; <" SSPSTAT equ 0214h ;# ">
+"3631
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3631: __asm("SSP1CON1 equ 0215h");
+[; <" SSP1CON1 equ 0215h ;# ">
+"3636
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3636: __asm("SSPCON1 equ 0215h");
+[; <" SSPCON1 equ 0215h ;# ">
+"3640
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3640: __asm("SSPCON equ 0215h");
+[; <" SSPCON equ 0215h ;# ">
+"3835
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3835: __asm("SSP1CON2 equ 0216h");
+[; <" SSP1CON2 equ 0216h ;# ">
+"3840
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3840: __asm("SSPCON2 equ 0216h");
+[; <" SSPCON2 equ 0216h ;# ">
+"3957
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3957: __asm("SSP1CON3 equ 0217h");
+[; <" SSP1CON3 equ 0217h ;# ">
+"3962
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 3962: __asm("SSPCON3 equ 0217h");
+[; <" SSPCON3 equ 0217h ;# ">
+"4079
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4079: __asm("CCPR1 equ 0291h");
+[; <" CCPR1 equ 0291h ;# ">
+"4086
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4086: __asm("CCPR1L equ 0291h");
+[; <" CCPR1L equ 0291h ;# ">
+"4106
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4106: __asm("CCPR1H equ 0292h");
+[; <" CCPR1H equ 0292h ;# ">
+"4126
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4126: __asm("CCP1CON equ 0293h");
+[; <" CCP1CON equ 0293h ;# ">
+"4208
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4208: __asm("PWM1CON equ 0294h");
+[; <" PWM1CON equ 0294h ;# ">
+"4278
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4278: __asm("CCP1AS equ 0295h");
+[; <" CCP1AS equ 0295h ;# ">
+"4283
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4283: __asm("ECCP1AS equ 0295h");
+[; <" ECCP1AS equ 0295h ;# ">
+"4440
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4440: __asm("PSTR1CON equ 0296h");
+[; <" PSTR1CON equ 0296h ;# ">
+"4484
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4484: __asm("CCPR2 equ 0298h");
+[; <" CCPR2 equ 0298h ;# ">
+"4491
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4491: __asm("CCPR2L equ 0298h");
+[; <" CCPR2L equ 0298h ;# ">
+"4511
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4511: __asm("CCPR2H equ 0299h");
+[; <" CCPR2H equ 0299h ;# ">
+"4531
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4531: __asm("CCP2CON equ 029Ah");
+[; <" CCP2CON equ 029Ah ;# ">
+"4613
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4613: __asm("PWM2CON equ 029Bh");
+[; <" PWM2CON equ 029Bh ;# ">
+"4683
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4683: __asm("CCP2AS equ 029Ch");
+[; <" CCP2AS equ 029Ch ;# ">
+"4765
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4765: __asm("PSTR2CON equ 029Dh");
+[; <" PSTR2CON equ 029Dh ;# ">
+"4809
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4809: __asm("CCPTMRS equ 029Eh");
+[; <" CCPTMRS equ 029Eh ;# ">
+"4897
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4897: __asm("CCPR3 equ 0311h");
+[; <" CCPR3 equ 0311h ;# ">
+"4904
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4904: __asm("CCPR3L equ 0311h");
+[; <" CCPR3L equ 0311h ;# ">
+"4924
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4924: __asm("CCPR3H equ 0312h");
+[; <" CCPR3H equ 0312h ;# ">
+"4944
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 4944: __asm("CCP3CON equ 0313h");
+[; <" CCP3CON equ 0313h ;# ">
+"5008
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5008: __asm("CCPR4 equ 0318h");
+[; <" CCPR4 equ 0318h ;# ">
+"5015
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5015: __asm("CCPR4L equ 0318h");
+[; <" CCPR4L equ 0318h ;# ">
+"5035
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5035: __asm("CCPR4H equ 0319h");
+[; <" CCPR4H equ 0319h ;# ">
+"5055
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5055: __asm("CCP4CON equ 031Ah");
+[; <" CCP4CON equ 031Ah ;# ">
+"5119
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5119: __asm("INLVLA equ 038Ch");
+[; <" INLVLA equ 038Ch ;# ">
+"5177
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5177: __asm("INLVLC equ 038Eh");
+[; <" INLVLC equ 038Eh ;# ">
+"5235
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5235: __asm("IOCAP equ 0391h");
+[; <" IOCAP equ 0391h ;# ">
+"5293
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5293: __asm("IOCAN equ 0392h");
+[; <" IOCAN equ 0392h ;# ">
+"5351
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5351: __asm("IOCAF equ 0393h");
+[; <" IOCAF equ 0393h ;# ">
+"5409
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5409: __asm("CLKRCON equ 039Ah");
+[; <" CLKRCON equ 039Ah ;# ">
+"5485
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5485: __asm("MDCON equ 039Ch");
+[; <" MDCON equ 039Ch ;# ">
+"5536
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5536: __asm("MDSRC equ 039Dh");
+[; <" MDSRC equ 039Dh ;# ">
+"5589
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5589: __asm("MDCARL equ 039Eh");
+[; <" MDCARL equ 039Eh ;# ">
+"5654
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5654: __asm("MDCARH equ 039Fh");
+[; <" MDCARH equ 039Fh ;# ">
+"5719
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5719: __asm("TMR4 equ 0415h");
+[; <" TMR4 equ 0415h ;# ">
+"5739
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5739: __asm("PR4 equ 0416h");
+[; <" PR4 equ 0416h ;# ">
+"5759
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5759: __asm("T4CON equ 0417h");
+[; <" T4CON equ 0417h ;# ">
+"5830
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5830: __asm("TMR6 equ 041Ch");
+[; <" TMR6 equ 041Ch ;# ">
+"5850
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5850: __asm("PR6 equ 041Dh");
+[; <" PR6 equ 041Dh ;# ">
+"5870
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5870: __asm("T6CON equ 041Eh");
+[; <" T6CON equ 041Eh ;# ">
+"5941
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5941: __asm("STATUS_SHAD equ 0FE4h");
+[; <" STATUS_SHAD equ 0FE4h ;# ">
+"5973
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5973: __asm("WREG_SHAD equ 0FE5h");
+[; <" WREG_SHAD equ 0FE5h ;# ">
+"5993
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 5993: __asm("BSR_SHAD equ 0FE6h");
+[; <" BSR_SHAD equ 0FE6h ;# ">
+"6013
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 6013: __asm("PCLATH_SHAD equ 0FE7h");
+[; <" PCLATH_SHAD equ 0FE7h ;# ">
+"6033
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 6033: __asm("FSR0L_SHAD equ 0FE8h");
+[; <" FSR0L_SHAD equ 0FE8h ;# ">
+"6053
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 6053: __asm("FSR0H_SHAD equ 0FE9h");
+[; <" FSR0H_SHAD equ 0FE9h ;# ">
+"6073
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 6073: __asm("FSR1L_SHAD equ 0FEAh");
+[; <" FSR1L_SHAD equ 0FEAh ;# ">
+"6093
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 6093: __asm("FSR1H_SHAD equ 0FEBh");
+[; <" FSR1H_SHAD equ 0FEBh ;# ">
+"6113
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 6113: __asm("STKPTR equ 0FEDh");
+[; <" STKPTR equ 0FEDh ;# ">
+"6133
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 6133: __asm("TOSL equ 0FEEh");
+[; <" TOSL equ 0FEEh ;# ">
+"6153
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1825.h: 6153: __asm("TOSH equ 0FEFh");
+[; <" TOSH equ 0FEFh ;# ">
+"58 mcc_generated_files/spi.c
+[; ;mcc_generated_files/spi.c: 58: static const spi_configuration_t spi_configuration[] = {
+[v _spi_configuration `CS330 ~T0 @X0 -> -> 1 `i `ux s ]
+[i _spi_configuration
+:U ..
+:U ..
+-> -> 5 `i `uc
+-> -> 64 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+..
+..
+]
+"62
+[; ;mcc_generated_files/spi.c: 62: void SPI_Initialize(void)
+[v _SPI_Initialize `(v ~T0 @X0 1 ef ]
+"63
+[; ;mcc_generated_files/spi.c: 63: {
+{
+[e :U _SPI_Initialize ]
+[f ]
+"65
+[; ;mcc_generated_files/spi.c: 65:     SSP1STAT = 0x40;
+[e = _SSP1STAT -> -> 64 `i `uc ]
+"66
+[; ;mcc_generated_files/spi.c: 66:     SSP1CON1 = 0x05;
+[e = _SSP1CON1 -> -> 5 `i `uc ]
+"67
+[; ;mcc_generated_files/spi.c: 67:     SSP1ADD = 0x00;
+[e = _SSP1ADD -> -> 0 `i `uc ]
+"68
+[; ;mcc_generated_files/spi.c: 68:     PIE1bits.SSP1IE = 1;
+[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
+"69
+[; ;mcc_generated_files/spi.c: 69:     SPI_SetInterruptHandler(SPI_Isr);
+[e ( _SPI_SetInterruptHandler (1 &U _SPI_Isr ]
+"70
+[; ;mcc_generated_files/spi.c: 70:     TRISCbits.TRISC0 = 1;
+[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+"71
+[; ;mcc_generated_files/spi.c: 71:     SSP1CON1bits.SSPEN = 0;
+[e = . . _SSP1CON1bits 0 5 -> -> 0 `i `uc ]
+"72
+[; ;mcc_generated_files/spi.c: 72: }
+[e :UE 331 ]
+}
+"74
+[; ;mcc_generated_files/spi.c: 74: _Bool SPI_Open(spi_modes_t spiUniqueConfiguration)
+[v _SPI_Open `(a ~T0 @X0 1 ef1`E353 ]
+"75
+[; ;mcc_generated_files/spi.c: 75: {
+{
+[e :U _SPI_Open ]
+"74
+[; ;mcc_generated_files/spi.c: 74: _Bool SPI_Open(spi_modes_t spiUniqueConfiguration)
+[v _spiUniqueConfiguration `E353 ~T0 @X0 1 r1 ]
+"75
+[; ;mcc_generated_files/spi.c: 75: {
+[f ]
+"76
+[; ;mcc_generated_files/spi.c: 76:     if(!SSP1CON1bits.SSPEN)
+[e $ ! ! != -> . . _SSP1CON1bits 0 5 `i -> 0 `i 333  ]
+"77
+[; ;mcc_generated_files/spi.c: 77:     {
+{
+"78
+[; ;mcc_generated_files/spi.c: 78:         SSP1STAT = spi_configuration[spiUniqueConfiguration].stat;
+[e = _SSP1STAT . *U + &U _spi_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi_configuration `ui `ux 1 ]
+"79
+[; ;mcc_generated_files/spi.c: 79:         SSP1CON1 = spi_configuration[spiUniqueConfiguration].con1;
+[e = _SSP1CON1 . *U + &U _spi_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi_configuration `ui `ux 0 ]
+"80
+[; ;mcc_generated_files/spi.c: 80:         SSP1CON2 = 0x00;
+[e = _SSP1CON2 -> -> 0 `i `uc ]
+"81
+[; ;mcc_generated_files/spi.c: 81:         SSP1ADD = spi_configuration[spiUniqueConfiguration].add;
+[e = _SSP1ADD . *U + &U _spi_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi_configuration `ui `ux 2 ]
+"82
+[; ;mcc_generated_files/spi.c: 82:         TRISCbits.TRISC0 = spi_configuration[spiUniqueConfiguration].operation;
+[e = . . _TRISCbits 0 0 . *U + &U _spi_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi_configuration `ui `ux 3 ]
+"83
+[; ;mcc_generated_files/spi.c: 83:         SSP1CON1bits.SSPEN = 1;
+[e = . . _SSP1CON1bits 0 5 -> -> 1 `i `uc ]
+"84
+[; ;mcc_generated_files/spi.c: 84:         return 1;
+[e ) -> -> 1 `i `a ]
+[e $UE 332  ]
+"85
+[; ;mcc_generated_files/spi.c: 85:     }
+}
+[e :U 333 ]
+"86
+[; ;mcc_generated_files/spi.c: 86:     return 0;
+[e ) -> -> 0 `i `a ]
+[e $UE 332  ]
+"87
+[; ;mcc_generated_files/spi.c: 87: }
+[e :UE 332 ]
+}
+"89
+[; ;mcc_generated_files/spi.c: 89: void SPI_Close(void)
+[v _SPI_Close `(v ~T0 @X0 1 ef ]
+"90
+[; ;mcc_generated_files/spi.c: 90: {
+{
+[e :U _SPI_Close ]
+[f ]
+"91
+[; ;mcc_generated_files/spi.c: 91:     SSP1CON1bits.SSPEN = 0;
+[e = . . _SSP1CON1bits 0 5 -> -> 0 `i `uc ]
+"92
+[; ;mcc_generated_files/spi.c: 92: }
+[e :UE 334 ]
+}
+"94
+[; ;mcc_generated_files/spi.c: 94: uint8_t SPI_ExchangeByte(uint8_t data)
+[v _SPI_ExchangeByte `(uc ~T0 @X0 1 ef1`uc ]
+"95
+[; ;mcc_generated_files/spi.c: 95: {
+{
+[e :U _SPI_ExchangeByte ]
+"94
+[; ;mcc_generated_files/spi.c: 94: uint8_t SPI_ExchangeByte(uint8_t data)
+[v _data `uc ~T0 @X0 1 r1 ]
+"95
+[; ;mcc_generated_files/spi.c: 95: {
+[f ]
+"96
+[; ;mcc_generated_files/spi.c: 96:     SSP1BUF = data;
+[e = _SSP1BUF _data ]
+"97
+[; ;mcc_generated_files/spi.c: 97:     while(!PIR1bits.SSP1IF);
+[e $U 336  ]
+[e :U 337 ]
+[e :U 336 ]
+[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 337  ]
+[e :U 338 ]
+"98
+[; ;mcc_generated_files/spi.c: 98:     PIR1bits.SSP1IF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"99
+[; ;mcc_generated_files/spi.c: 99:     return SSP1BUF;
+[e ) _SSP1BUF ]
+[e $UE 335  ]
+"100
+[; ;mcc_generated_files/spi.c: 100: }
+[e :UE 335 ]
+}
+"102
+[; ;mcc_generated_files/spi.c: 102: void SPI_ExchangeBlock(void *block, size_t blockSize)
+[v _SPI_ExchangeBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"103
+[; ;mcc_generated_files/spi.c: 103: {
+{
+[e :U _SPI_ExchangeBlock ]
+"102
+[; ;mcc_generated_files/spi.c: 102: void SPI_ExchangeBlock(void *block, size_t blockSize)
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"103
+[; ;mcc_generated_files/spi.c: 103: {
+[f ]
+"104
+[; ;mcc_generated_files/spi.c: 104:     uint8_t *data = block;
+[v _data `*uc ~T0 @X0 1 a ]
+[e = _data -> _block `*uc ]
+"105
+[; ;mcc_generated_files/spi.c: 105:     while(blockSize--)
+[e $U 340  ]
+[e :U 341 ]
+"106
+[; ;mcc_generated_files/spi.c: 106:     {
+{
+"107
+[; ;mcc_generated_files/spi.c: 107:         SSP1BUF = *data;
+[e = _SSP1BUF *U _data ]
+"108
+[; ;mcc_generated_files/spi.c: 108:         while(!PIR1bits.SSP1IF);
+[e $U 343  ]
+[e :U 344 ]
+[e :U 343 ]
+[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 344  ]
+[e :U 345 ]
+"109
+[; ;mcc_generated_files/spi.c: 109:         PIR1bits.SSP1IF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"110
+[; ;mcc_generated_files/spi.c: 110:         *data++ = SSP1BUF;
+[e = *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x _SSP1BUF ]
+"111
+[; ;mcc_generated_files/spi.c: 111:     }
+}
+[e :U 340 ]
+"105
+[; ;mcc_generated_files/spi.c: 105:     while(blockSize--)
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 341  ]
+[e :U 342 ]
+"112
+[; ;mcc_generated_files/spi.c: 112: }
+[e :UE 339 ]
+}
+"115
+[; ;mcc_generated_files/spi.c: 115: void SPI_WriteBlock(void *block, size_t blockSize)
+[v _SPI_WriteBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"116
+[; ;mcc_generated_files/spi.c: 116: {
+{
+[e :U _SPI_WriteBlock ]
+"115
+[; ;mcc_generated_files/spi.c: 115: void SPI_WriteBlock(void *block, size_t blockSize)
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"116
+[; ;mcc_generated_files/spi.c: 116: {
+[f ]
+"117
+[; ;mcc_generated_files/spi.c: 117:     uint8_t *data = block;
+[v _data `*uc ~T0 @X0 1 a ]
+[e = _data -> _block `*uc ]
+"118
+[; ;mcc_generated_files/spi.c: 118:     while(blockSize--)
+[e $U 347  ]
+[e :U 348 ]
+"119
+[; ;mcc_generated_files/spi.c: 119:     {
+{
+"120
+[; ;mcc_generated_files/spi.c: 120:         SPI_ExchangeByte(*data++);
+[e ( _SPI_ExchangeByte (1 *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+"121
+[; ;mcc_generated_files/spi.c: 121:     }
+}
+[e :U 347 ]
+"118
+[; ;mcc_generated_files/spi.c: 118:     while(blockSize--)
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 348  ]
+[e :U 349 ]
+"122
+[; ;mcc_generated_files/spi.c: 122: }
+[e :UE 346 ]
+}
+"124
+[; ;mcc_generated_files/spi.c: 124: void SPI_ReadBlock(void *block, size_t blockSize)
+[v _SPI_ReadBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"125
+[; ;mcc_generated_files/spi.c: 125: {
+{
+[e :U _SPI_ReadBlock ]
+"124
+[; ;mcc_generated_files/spi.c: 124: void SPI_ReadBlock(void *block, size_t blockSize)
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"125
+[; ;mcc_generated_files/spi.c: 125: {
+[f ]
+"126
+[; ;mcc_generated_files/spi.c: 126:     uint8_t *data = block;
+[v _data `*uc ~T0 @X0 1 a ]
+[e = _data -> _block `*uc ]
+"127
+[; ;mcc_generated_files/spi.c: 127:     while(blockSize--)
+[e $U 351  ]
+[e :U 352 ]
+"128
+[; ;mcc_generated_files/spi.c: 128:     {
+{
+"129
+[; ;mcc_generated_files/spi.c: 129:         *data++ = SPI_ExchangeByte(0);
+[e = *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ( _SPI_ExchangeByte (1 -> -> 0 `i `uc ]
+"130
+[; ;mcc_generated_files/spi.c: 130:     }
+}
+[e :U 351 ]
+"127
+[; ;mcc_generated_files/spi.c: 127:     while(blockSize--)
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 352  ]
+[e :U 353 ]
+"131
+[; ;mcc_generated_files/spi.c: 131: }
+[e :UE 350 ]
+}
+"133
+[; ;mcc_generated_files/spi.c: 133: void SPI_WriteByte(uint8_t byte)
+[v _SPI_WriteByte `(v ~T0 @X0 1 ef1`uc ]
+"134
+[; ;mcc_generated_files/spi.c: 134: {
+{
+[e :U _SPI_WriteByte ]
+"133
+[; ;mcc_generated_files/spi.c: 133: void SPI_WriteByte(uint8_t byte)
+[v _byte `uc ~T0 @X0 1 r1 ]
+"134
+[; ;mcc_generated_files/spi.c: 134: {
+[f ]
+"135
+[; ;mcc_generated_files/spi.c: 135:     SSP1BUF = byte;
+[e = _SSP1BUF _byte ]
+"136
+[; ;mcc_generated_files/spi.c: 136: }
+[e :UE 354 ]
+}
+"138
+[; ;mcc_generated_files/spi.c: 138: uint8_t SPI_ReadByte(void)
+[v _SPI_ReadByte `(uc ~T0 @X0 1 ef ]
+"139
+[; ;mcc_generated_files/spi.c: 139: {
+{
+[e :U _SPI_ReadByte ]
+[f ]
+"140
+[; ;mcc_generated_files/spi.c: 140:     return SSP1BUF;
+[e ) _SSP1BUF ]
+[e $UE 355  ]
+"141
+[; ;mcc_generated_files/spi.c: 141: }
+[e :UE 355 ]
+}
+"143
+[; ;mcc_generated_files/spi.c: 143: void SPI_Isr(void)
+[v _SPI_Isr `(v ~T0 @X0 1 ef ]
+"144
+[; ;mcc_generated_files/spi.c: 144: {
+{
+[e :U _SPI_Isr ]
+[f ]
+"145
+[; ;mcc_generated_files/spi.c: 145:     if(PIR1bits.SSP1IF == 1){
+[e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 357  ]
+{
+"146
+[; ;mcc_generated_files/spi.c: 146:         if(MSSP_InterruptHandler){
+[e $ ! != _MSSP_InterruptHandler -> -> 0 `i `*F2719 358  ]
+{
+"147
+[; ;mcc_generated_files/spi.c: 147:             MSSP_InterruptHandler();
+[e ( *U _MSSP_InterruptHandler ..  ]
+"148
+[; ;mcc_generated_files/spi.c: 148:         }
+}
+[e :U 358 ]
+"149
+[; ;mcc_generated_files/spi.c: 149:         PIR1bits.SSP1IF= 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"150
+[; ;mcc_generated_files/spi.c: 150:     }
+}
+[e :U 357 ]
+"151
+[; ;mcc_generated_files/spi.c: 151: }
+[e :UE 356 ]
+}
+"153
+[; ;mcc_generated_files/spi.c: 153: void SPI_SetInterruptHandler(spiInterruptHandler_t handler)
+[v _SPI_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F2721 ]
+"154
+[; ;mcc_generated_files/spi.c: 154: {
+{
+[e :U _SPI_SetInterruptHandler ]
+"153
+[; ;mcc_generated_files/spi.c: 153: void SPI_SetInterruptHandler(spiInterruptHandler_t handler)
+[v _handler `*F2723 ~T0 @X0 1 r1 ]
+"154
+[; ;mcc_generated_files/spi.c: 154: {
+[f ]
+"155
+[; ;mcc_generated_files/spi.c: 155:     MSSP_InterruptHandler = handler;
+[e = _MSSP_InterruptHandler _handler ]
+"156
+[; ;mcc_generated_files/spi.c: 156: }
+[e :UE 359 ]
+}

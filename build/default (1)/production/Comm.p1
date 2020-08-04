@@ -1,0 +1,707 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F166 `(v ~T0 @X0 0 tf ]
+"108 ./Comm.h
+[; ;./Comm.h: 108:     typedef struct COMM_REG {
+[s S6 `*F166 1 `*us 1 `uc 1 ]
+[n S6 COMM_REG action val reg ]
+[v F181 `(v ~T0 @X0 0 tf2`*S6`uc ]
+[v F186 `(*S6 ~T0 @X0 0 tf1`uc ]
+"136
+[; ;./Comm.h: 136:     typedef struct COMM_TABLE {
+[s S9 `*F181 1 `S6 -> 10 `i `*F186 1 ]
+[n S9 COMM_TABLE setRegistersTable regs getRegister ]
+"22 Comm.c
+[; ;Comm.c: 22: static void setRegistersTable(CommRegister * tab, uint8_t length);
+[v _setRegistersTable `(v ~T0 @X0 0 sf2`*S6`uc ]
+"23
+[; ;Comm.c: 23: static CommRegister * getRegister(uint8_t address);
+[v _getRegister `(*S6 ~T0 @X0 0 sf1`uc ]
+[v F191 `(v ~T0 @X0 0 tf ]
+[v F193 `(v ~T0 @X0 0 tf1`*ul ]
+[v F49 `(i ~T0 @X0 0 tf3`*S3`*uc`uc ]
+[v F54 `(i ~T0 @X0 0 tf3`*S3`*uc`uc ]
+[v F59 `(v ~T0 @X0 0 tf1`*S3 ]
+[v F62 `(v ~T0 @X0 0 tf1`*S3 ]
+[v F65 `(v ~T0 @X0 0 tf1`*S3 ]
+[v F68 `(a ~T0 @X0 0 tf1`*S3 ]
+[v F71 `(a ~T0 @X0 0 tf1`*S3 ]
+[v F74 `(v ~T0 @X0 0 tf1`*ul ]
+[v F77 `(v ~T0 @X0 0 tf1`*S3 ]
+[v F80 `(v ~T0 @X0 0 tf1`*S3 ]
+[v F83 `(v ~T0 @X0 0 tf ]
+[v F85 `(v ~T0 @X0 0 tf ]
+[v F87 `(v ~T0 @X0 0 tf ]
+[v F89 `(v ~T0 @X0 0 tf ]
+[v F91 `(a ~T0 @X0 0 tf1`*S3 ]
+[v F95 `(a ~T0 @X0 0 tf ]
+[v F97 `(v ~T0 @X0 0 tf ]
+[v F99 `(v ~T0 @X0 0 tf ]
+[v F101 `(uc ~T0 @X0 0 tf ]
+[v F103 `(v ~T0 @X0 0 tf1`uc ]
+[v F106 `(v ~T0 @X0 0 tf1`uc ]
+[v F109 `(v ~T0 @X0 0 tf1`a ]
+"61 ./SpiCommunication.h
+[; ;./SpiCommunication.h: 61:         struct {
+[s S2 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2 . open reserved_6 reserved_5 reserved_4 sendComplete receiveComplete byteRead reserved_0 ]
+"58
+[; ;./SpiCommunication.h: 58:     typedef union {
+[u S1 `uc 1 `S2 1 ]
+[n S1 . val b ]
+"91
+[; ;./SpiCommunication.h: 91:     typedef struct SPI {
+[s S3 `*F49 1 `*F54 1 `*F59 1 `*F62 1 `*F65 1 `*F68 1 `*F71 1 `*F74 1 `*F77 1 `*F80 1 `*F83 1 `*F85 1 `*F87 1 `*F89 1 `*F91 1 `uc 1 `*F95 1 `*F97 1 `*F99 1 `*F101 1 `*F103 1 `*F106 1 `*F109 1 `i 1 `i 1 `S1 1 `ul 1 `*uc 1 `*uc 1 `a 1 ]
+[n S3 SPI read write open close tasks txDone rxDone setTimeBaseCounter reset exchangeDone readCallBack writeCallBack byteReadCallBack errorCallBack healthy rChar hwopen hwclose hwreset readByte writeByte_1 writeByte_2 hwInterrupEnable charsToReceive charsToSend state timer dataToRead dataToWrite newData ]
+"42 Comm.c
+[; ;Comm.c: 42: static Communication instance = {
+[c E147 0 1 2 4 8 16 65535 .. ]
+[n E147 COMM_ERROR COMM_ERR_OK COMM_ERR_BAD_CHKS COMM_ERR_BAD_SEQUENCE COMM_ERR_INVALID_REG COMM_ERR_READ_TIMOUT COMM_ERR_WRITE_TIMEOUT COMM_ERR_last  ]
+"170 ./Comm.h
+[; ;./Comm.h: 170:     typedef struct COMMUNICATION {
+[s S10 `*F191 1 `*F193 1 `*S3 1 `*S9 1 `E147 1 ]
+[n S10 COMMUNICATION tasks setTimeBaseCounter commDriver regsTable errorCode ]
+"24 Comm.c
+[; ;Comm.c: 24: static void tasks(void);
+[v _tasks `(v ~T0 @X0 0 sf ]
+"26
+[; ;Comm.c: 26: static void setTimeBaseCounter(uint32_t * timeMillis);
+[v _setTimeBaseCounter `(v ~T0 @X0 0 sf1`*ul ]
+"48
+[; ;Comm.c: 48: static CommState state = 0;
+[c E368 0 1 2 3 .. ]
+[n E368 . COMM_IDLE COMM_START_SEND COMM_WAINTING_FRAME COMM_TRANSMITING_FRAME  ]
+"92 ./Comm.h
+[; ;./Comm.h: 92:         struct {
+[s S5 :1 `uc 1 :4 `uc 1 :3 `uc 1 ]
+[n S5 . write sequence reserved ]
+"90
+[; ;./Comm.h: 90:     typedef union FRAME_HEADER {
+[u S4 `uc 1 `S5 1 ]
+[n S4 FRAME_HEADER val d ]
+"122
+[; ;./Comm.h: 122:         struct {
+[s S8 `S4 1 `uc 1 `us 1 `uc 1 ]
+[n S8 . header reg value checksum ]
+"120
+[; ;./Comm.h: 120:     typedef union COMM_FRAME {
+[u S7 `uc -> 5 `i `S8 1 ]
+[n S7 COMM_FRAME data fields ]
+"30 Comm.c
+[; ;Comm.c: 30: static uint8_t getSUM(uint8_t * buff, uint8_t n);
+[v _getSUM `(uc ~T0 @X0 0 sf2`*uc`uc ]
+"34
+[; ;Comm.c: 34: static void reset(void);
+[v _reset `(v ~T0 @X0 0 sf ]
+[v F415 `(v ~T0 @X0 0 tf ]
+[v F418 `(v ~T0 @X0 0 tf ]
+"33
+[; ;Comm.c: 33: static void creatErrorFrame(void);
+[v _creatErrorFrame `(v ~T0 @X0 0 sf ]
+"27 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\string.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\string.h: 27: void *memcpy (void *restrict, const void *restrict, size_t);
+[v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
+[v F442 `(v ~T0 @X0 0 tf ]
+"29
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\string.h: 29: void *memset (void *, int, size_t);
+[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
+"38 Comm.c
+[; ;Comm.c: 38: static RelationalTable table = {
+[v _table `S9 ~T0 @X0 1 s ]
+[i _table
+:U ..
+:U ..
+&U _setRegistersTable
+:U ..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 0 `i `*F166
+-> -> 0 `i `*us
+-> -> 0 `i `uc
+..
+..
+&U _getRegister
+..
+..
+]
+"42
+[; ;Comm.c: 42: static Communication instance = {
+[v _instance `S10 ~T0 @X0 1 s ]
+[i _instance
+:U ..
+:U ..
+&U _tasks
+&U _setTimeBaseCounter
+-> -> 0 `i `*S3
+&U _table
+. `E147 0
+..
+..
+]
+"48
+[; ;Comm.c: 48: static CommState state = 0;
+[v _state `E368 ~T0 @X0 1 s ]
+[i _state
+-> -> 0 `i `E368
+]
+"49
+[; ;Comm.c: 49: static uint32_t * currentTimeMillis;
+[v _currentTimeMillis `*ul ~T0 @X0 1 s ]
+"50
+[; ;Comm.c: 50: static uint32_t timeoutCounter;
+[v _timeoutCounter `ul ~T0 @X0 1 s ]
+"51
+[; ;Comm.c: 51: static CommFrame inputFrame;
+[v _inputFrame `S7 ~T0 @X0 1 s ]
+"52
+[; ;Comm.c: 52: static CommFrame outFrame;
+[v _outFrame `S7 ~T0 @X0 1 s ]
+"53
+[; ;Comm.c: 53: static uint8_t sequence = 16;
+[v _sequence `uc ~T0 @X0 1 s ]
+[i _sequence
+-> -> 16 `i `uc
+]
+"58
+[; ;Comm.c: 58: static void commandHandler(void) {
+[v _commandHandler `(v ~T0 @X0 1 sf ]
+{
+[e :U _commandHandler ]
+[f ]
+"59
+[; ;Comm.c: 59:     instance.errorCode = COMM_ERR_OK;
+[e = . _instance 4 . `E147 0 ]
+"60
+[; ;Comm.c: 60:     if (getSUM(inputFrame.data, 5 - 1) != inputFrame.fields.checksum) {
+[e $ ! != -> ( _getSUM (2 , &U . _inputFrame 0 -> - -> 5 `i -> 1 `i `uc `i -> . . _inputFrame 1 3 `i 13  ]
+{
+"61
+[; ;Comm.c: 61:         instance.errorCode |= COMM_ERR_BAD_CHKS;
+[e =| . _instance 4 -> . `E147 1 `E147 ]
+"63
+[; ;Comm.c: 63:         reset();
+[e ( _reset ..  ]
+"64
+[; ;Comm.c: 64:         return;
+[e $UE 12  ]
+"65
+[; ;Comm.c: 65:     } else if (inputFrame.fields.header.d.sequence == sequence) {
+}
+[e $U 14  ]
+[e :U 13 ]
+[e $ ! == -> . . . . _inputFrame 1 0 1 1 `i -> _sequence `i 15  ]
+{
+"66
+[; ;Comm.c: 66:         instance.errorCode |= COMM_ERR_BAD_SEQUENCE;
+[e =| . _instance 4 -> . `E147 2 `E147 ]
+"67
+[; ;Comm.c: 67:         outFrame.fields.reg = 100;
+[e = . . _outFrame 1 1 -> -> 100 `i `uc ]
+"68
+[; ;Comm.c: 68:         outFrame.fields.value = COMM_ERR_BAD_SEQUENCE;
+[e = . . _outFrame 1 2 -> . `E147 2 `us ]
+"69
+[; ;Comm.c: 69:         sequence = 16;
+[e = _sequence -> -> 16 `i `uc ]
+"70
+[; ;Comm.c: 70:     } else {
+}
+[e $U 16  ]
+[e :U 15 ]
+{
+"71
+[; ;Comm.c: 71:         sequence = inputFrame.fields.header.d.sequence;
+[e = _sequence . . . . _inputFrame 1 0 1 1 ]
+"72
+[; ;Comm.c: 72:         CommRegister * reg = table.getRegister(inputFrame.fields.reg);
+[v _reg `*S6 ~T0 @X0 1 a ]
+[e = _reg ( *U . _table 2 (1 . . _inputFrame 1 1 ]
+"73
+[; ;Comm.c: 73:         if (reg != 0) {
+[e $ ! != _reg -> -> 0 `i `*S6 17  ]
+{
+"74
+[; ;Comm.c: 74:             if (inputFrame.fields.header.d.write) {
+[e $ ! != -> . . . . _inputFrame 1 0 1 0 `i -> 0 `i 18  ]
+{
+"75
+[; ;Comm.c: 75:                 if (reg->action)
+[e $ ! != . *U _reg 0 -> -> 0 `i `*F415 19  ]
+"76
+[; ;Comm.c: 76:                     reg->action();
+[e ( *U . *U _reg 0 ..  ]
+[e $U 20  ]
+"77
+[; ;Comm.c: 77:                 else
+[e :U 19 ]
+"78
+[; ;Comm.c: 78:                     *reg->val = inputFrame.fields.value;
+[e = *U . *U _reg 1 . . _inputFrame 1 2 ]
+[e :U 20 ]
+"79
+[; ;Comm.c: 79:             } else {
+}
+[e $U 21  ]
+[e :U 18 ]
+{
+"80
+[; ;Comm.c: 80:                 if (reg->action == 0) {
+[e $ ! == . *U _reg 0 -> -> 0 `i `*F418 22  ]
+{
+"81
+[; ;Comm.c: 81:                     outFrame.fields.header.d.write = 1;
+[e = . . . . _outFrame 1 0 1 0 -> -> 1 `i `uc ]
+"82
+[; ;Comm.c: 82:                     outFrame.fields.value = *reg->val;
+[e = . . _outFrame 1 2 *U . *U _reg 1 ]
+"83
+[; ;Comm.c: 83:                 } else
+}
+[e $U 23  ]
+[e :U 22 ]
+"84
+[; ;Comm.c: 84:                     instance.errorCode |= COMM_ERR_INVALID_REG;
+[e =| . _instance 4 -> . `E147 3 `E147 ]
+[e :U 23 ]
+"85
+[; ;Comm.c: 85:             }
+}
+[e :U 21 ]
+"86
+[; ;Comm.c: 86:         } else
+}
+[e $U 24  ]
+[e :U 17 ]
+"87
+[; ;Comm.c: 87:             instance.errorCode |= COMM_ERR_INVALID_REG;
+[e =| . _instance 4 -> . `E147 3 `E147 ]
+[e :U 24 ]
+"88
+[; ;Comm.c: 88:     }
+}
+[e :U 16 ]
+[e :U 14 ]
+"89
+[; ;Comm.c: 89:     if (instance.errorCode != COMM_ERR_OK)
+[e $ ! != -> . _instance 4 `ui -> . `E147 0 `ui 25  ]
+"90
+[; ;Comm.c: 90:         creatErrorFrame();
+[e ( _creatErrorFrame ..  ]
+[e :U 25 ]
+"91
+[; ;Comm.c: 91:     outFrame.fields.checksum = getSUM(outFrame.data, 5 - 1);
+[e = . . _outFrame 1 3 ( _getSUM (2 , &U . _outFrame 0 -> - -> 5 `i -> 1 `i `uc ]
+"92
+[; ;Comm.c: 92: }
+[e :UE 12 ]
+}
+[v F420 `(i ~T0 @X0 1 tf ]
+"94
+[; ;Comm.c: 94: static __attribute__((inline)) int inputR(void) {
+[v _inputR `TF420 ~T0 @X0 1 s ]
+{
+[e :U _inputR ]
+[f ]
+"95
+[; ;Comm.c: 95:     timeoutCounter = (*currentTimeMillis);
+[e = _timeoutCounter *U _currentTimeMillis ]
+"96
+[; ;Comm.c: 96:     return instance.commDriver->read(instance.commDriver, inputFrame.data, 5);
+[e ) ( *U . *U . _instance 2 0 (3 , , . _instance 2 &U . _inputFrame 0 -> -> 5 `i `uc ]
+[e $UE 26  ]
+"97
+[; ;Comm.c: 97: }
+[e :UE 26 ]
+}
+[v F426 `(i ~T0 @X0 1 tf ]
+"99
+[; ;Comm.c: 99: static __attribute__((inline)) int outputW(void) {
+[v _outputW `TF426 ~T0 @X0 1 s ]
+{
+[e :U _outputW ]
+[f ]
+"100
+[; ;Comm.c: 100:     timeoutCounter = (*currentTimeMillis);
+[e = _timeoutCounter *U _currentTimeMillis ]
+"101
+[; ;Comm.c: 101:     return instance.commDriver->write(instance.commDriver, outFrame.data, 5);
+[e ) ( *U . *U . _instance 2 1 (3 , , . _instance 2 &U . _outFrame 0 -> -> 5 `i `uc ]
+[e $UE 27  ]
+"102
+[; ;Comm.c: 102: }
+[e :UE 27 ]
+}
+"104
+[; ;Comm.c: 104: static uint8_t getSUM(uint8_t * buff, uint8_t n) {
+[v _getSUM `(uc ~T0 @X0 1 sf2`*uc`uc ]
+{
+[e :U _getSUM ]
+[v _buff `*uc ~T0 @X0 1 r1 ]
+[v _n `uc ~T0 @X0 1 r2 ]
+[f ]
+"105
+[; ;Comm.c: 105:     uint8_t out = 0;
+[v _out `uc ~T0 @X0 1 a ]
+[e = _out -> -> 0 `i `uc ]
+"106
+[; ;Comm.c: 106:     for (uint8_t i = 0; i < n; i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 32  ]
+[e :U 29 ]
+"107
+[; ;Comm.c: 107:         out += *buff++;
+[e =+ _out -> *U ++ _buff * -> -> 1 `i `x -> -> # *U _buff `i `x `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 32 ]
+[e $ < -> _i `i -> _n `i 29  ]
+[e :U 30 ]
+}
+"108
+[; ;Comm.c: 108:     return out;
+[e ) _out ]
+[e $UE 28  ]
+"109
+[; ;Comm.c: 109: }
+[e :UE 28 ]
+}
+"111
+[; ;Comm.c: 111: static void transferFrames(void) {
+[v _transferFrames `(v ~T0 @X0 1 sf ]
+{
+[e :U _transferFrames ]
+[f ]
+"112
+[; ;Comm.c: 112:     memcpy(outFrame.data, inputFrame.data, 5);
+[e ( _memcpy (3 , , -> &U . _outFrame 0 `*v -> &U . _inputFrame 0 `*Cv -> -> 5 `i `ui ]
+"113
+[; ;Comm.c: 113: }
+[e :UE 33 ]
+}
+"115
+[; ;Comm.c: 115: static void creatErrorFrame(void) {
+[v _creatErrorFrame `(v ~T0 @X0 1 sf ]
+{
+[e :U _creatErrorFrame ]
+[f ]
+"116
+[; ;Comm.c: 116:     outFrame.fields.header = inputFrame.fields.header;
+[e = . . _outFrame 1 0 . . _inputFrame 1 0 ]
+"117
+[; ;Comm.c: 117:     outFrame.fields.reg = 100;
+[e = . . _outFrame 1 1 -> -> 100 `i `uc ]
+"118
+[; ;Comm.c: 118:     outFrame.fields.value = instance.errorCode;
+[e = . . _outFrame 1 2 -> . _instance 4 `us ]
+"119
+[; ;Comm.c: 119: }
+[e :UE 34 ]
+}
+"124
+[; ;Comm.c: 124: static void setRegistersTable(CommRegister * tab, uint8_t length) {
+[v _setRegistersTable `(v ~T0 @X0 1 sf2`*S6`uc ]
+{
+[e :U _setRegistersTable ]
+[v _tab `*S6 ~T0 @X0 1 r1 ]
+[v _length `uc ~T0 @X0 1 r2 ]
+[f ]
+[v F441 `S6 ~T0 @X0 1 s ]
+[i F441
+:U ..
+:U ..
+"125
+[; ;Comm.c: 125:     CommRegister reg0 = {.action = 0, .val = (uint16_t *) & instance.errorCode, .reg = 100};
+-> -> 0 `i `*F442
+-> &U . _instance 4 `*us
+-> -> 100 `i `uc
+..
+..
+]
+[v _reg0 `S6 ~T0 @X0 1 a ]
+[e = _reg0 F441 ]
+"126
+[; ;Comm.c: 126:     memset(table.regs, 0xFF, (sizeof reg0) * 10);
+[e ( _memset (3 , , -> &U . _table 1 `*v -> 255 `i * -> # _reg0 `ui -> -> 10 `i `ui ]
+"127
+[; ;Comm.c: 127:     memcpy(table.regs, tab, length);
+[e ( _memcpy (3 , , -> &U . _table 1 `*v -> _tab `*Cv -> _length `ui ]
+"128
+[; ;Comm.c: 128:     table.regs[length / (sizeof reg0)] = reg0;
+[e = *U + &U . _table 1 * -> / -> _length `ui -> # _reg0 `ui `ux -> -> # *U &U . _table 1 `ui `ux _reg0 ]
+"129
+[; ;Comm.c: 129: }
+[e :UE 35 ]
+}
+"131
+[; ;Comm.c: 131: static void tasks(void) {
+[v _tasks `(v ~T0 @X0 1 sf ]
+{
+[e :U _tasks ]
+[f ]
+"132
+[; ;Comm.c: 132:     switch (state) {
+[e $U 38  ]
+{
+"133
+[; ;Comm.c: 133:         case COMM_IDLE:
+[e :U 39 ]
+"134
+[; ;Comm.c: 134:             inputR();
+[e ( _inputR ..  ]
+"135
+[; ;Comm.c: 135:             state = COMM_WAINTING_FRAME;
+[e = _state . `E368 2 ]
+"136
+[; ;Comm.c: 136:             break;
+[e $U 37  ]
+"137
+[; ;Comm.c: 137:         case COMM_START_SEND:
+[e :U 40 ]
+"138
+[; ;Comm.c: 138:             if (outputW() == 0)
+[e $ ! == ( _outputW ..  -> 0 `i 41  ]
+"139
+[; ;Comm.c: 139:                 state = COMM_TRANSMITING_FRAME;
+[e = _state . `E368 3 ]
+[e :U 41 ]
+"140
+[; ;Comm.c: 140:         case COMM_WAINTING_FRAME:
+[e :U 42 ]
+"141
+[; ;Comm.c: 141:             if (instance.commDriver->rxDone(instance.commDriver)) {
+[e $ ! != -> ( *U . *U . _instance 2 6 (1 . _instance 2 `i -> 0 `i 43  ]
+{
+"142
+[; ;Comm.c: 142:                 inputR();
+[e ( _inputR ..  ]
+"143
+[; ;Comm.c: 143:                 transferFrames();
+[e ( _transferFrames ..  ]
+"144
+[; ;Comm.c: 144:                 if (outputW() == 0)
+[e $ ! == ( _outputW ..  -> 0 `i 44  ]
+"145
+[; ;Comm.c: 145:                     state = COMM_TRANSMITING_FRAME;
+[e = _state . `E368 3 ]
+[e $U 45  ]
+"146
+[; ;Comm.c: 146:                 else
+[e :U 44 ]
+"147
+[; ;Comm.c: 147:                     state = COMM_START_SEND;
+[e = _state . `E368 1 ]
+[e :U 45 ]
+"148
+[; ;Comm.c: 148:                 commandHandler();
+[e ( _commandHandler ..  ]
+"149
+[; ;Comm.c: 149:             } else if (((*currentTimeMillis) - timeoutCounter) > 1000) {
+}
+[e $U 46  ]
+[e :U 43 ]
+[e $ ! > - *U _currentTimeMillis _timeoutCounter -> -> -> 1000 `i `l `ul 47  ]
+{
+"150
+[; ;Comm.c: 150:                 instance.errorCode |= COMM_ERR_READ_TIMOUT;
+[e =| . _instance 4 -> . `E147 4 `E147 ]
+"151
+[; ;Comm.c: 151:                 instance.commDriver->reset(instance.commDriver);
+[e ( *U . *U . _instance 2 8 (1 . _instance 2 ]
+"152
+[; ;Comm.c: 152:                 state = COMM_IDLE;
+[e = _state . `E368 0 ]
+"153
+[; ;Comm.c: 153:             }
+}
+[e :U 47 ]
+[e :U 46 ]
+"154
+[; ;Comm.c: 154:             break;
+[e $U 37  ]
+"155
+[; ;Comm.c: 155:         case COMM_TRANSMITING_FRAME:
+[e :U 48 ]
+"156
+[; ;Comm.c: 156:             if (instance.commDriver->txDone(instance.commDriver)) {
+[e $ ! != -> ( *U . *U . _instance 2 5 (1 . _instance 2 `i -> 0 `i 49  ]
+{
+"157
+[; ;Comm.c: 157:                 inputR();
+[e ( _inputR ..  ]
+"158
+[; ;Comm.c: 158:                 state = COMM_IDLE;
+[e = _state . `E368 0 ]
+"159
+[; ;Comm.c: 159:             } else if (((*currentTimeMillis) - timeoutCounter) > 300) {
+}
+[e $U 50  ]
+[e :U 49 ]
+[e $ ! > - *U _currentTimeMillis _timeoutCounter -> -> -> 300 `i `l `ul 51  ]
+{
+"160
+[; ;Comm.c: 160:                 instance.errorCode |= COMM_ERR_WRITE_TIMEOUT;
+[e =| . _instance 4 -> . `E147 5 `E147 ]
+"161
+[; ;Comm.c: 161:                 instance.commDriver->reset(instance.commDriver);
+[e ( *U . *U . _instance 2 8 (1 . _instance 2 ]
+"162
+[; ;Comm.c: 162:                 state = COMM_IDLE;
+[e = _state . `E368 0 ]
+"163
+[; ;Comm.c: 163:             }
+}
+[e :U 51 ]
+[e :U 50 ]
+"164
+[; ;Comm.c: 164:             break;
+[e $U 37  ]
+"165
+[; ;Comm.c: 165:     }
+}
+[e $U 37  ]
+[e :U 38 ]
+[e [\ -> _state `ui , $ -> . `E368 0 `ui 39
+ , $ -> . `E368 1 `ui 40
+ , $ -> . `E368 2 `ui 42
+ , $ -> . `E368 3 `ui 48
+ 37 ]
+[e :U 37 ]
+"166
+[; ;Comm.c: 166: }
+[e :UE 36 ]
+}
+"168
+[; ;Comm.c: 168: static CommRegister * getRegister(uint8_t address) {
+[v _getRegister `(*S6 ~T0 @X0 1 sf1`uc ]
+{
+[e :U _getRegister ]
+[v _address `uc ~T0 @X0 1 r1 ]
+[f ]
+"169
+[; ;Comm.c: 169:     if (address) {
+[e $ ! != -> _address `i -> 0 `i 53  ]
+{
+"170
+[; ;Comm.c: 170:         for (uint8_t i = 0; i < 10; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 10 `i 54  ]
+[e $U 55  ]
+[e :U 54 ]
+{
+"171
+[; ;Comm.c: 171:             if (table.regs[i].reg == address)
+[e $ ! == -> . *U + &U . _table 1 * -> _i `ux -> -> # *U &U . _table 1 `ui `ux 2 `i -> _address `i 57  ]
+"172
+[; ;Comm.c: 172:                 return &table.regs[i];
+[e ) &U *U + &U . _table 1 * -> _i `ux -> -> # *U &U . _table 1 `ui `ux ]
+[e $UE 52  ]
+[e :U 57 ]
+"173
+[; ;Comm.c: 173:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 10 `i 54  ]
+[e :U 55 ]
+}
+"174
+[; ;Comm.c: 174:     }
+}
+[e :U 53 ]
+"175
+[; ;Comm.c: 175:     return 0;
+[e ) -> -> 0 `i `*S6 ]
+[e $UE 52  ]
+"176
+[; ;Comm.c: 176: }
+[e :UE 52 ]
+}
+"178
+[; ;Comm.c: 178: static void setTimeBaseCounter(uint32_t * timeMillis) {
+[v _setTimeBaseCounter `(v ~T0 @X0 1 sf1`*ul ]
+{
+[e :U _setTimeBaseCounter ]
+[v _timeMillis `*ul ~T0 @X0 1 r1 ]
+[f ]
+"179
+[; ;Comm.c: 179:     currentTimeMillis = timeMillis;
+[e = _currentTimeMillis _timeMillis ]
+"180
+[; ;Comm.c: 180: }
+[e :UE 58 ]
+}
+"182
+[; ;Comm.c: 182: Communication * GetCommunicationInstance(void) {
+[v _GetCommunicationInstance `(*S10 ~T0 @X0 1 ef ]
+{
+[e :U _GetCommunicationInstance ]
+[f ]
+"183
+[; ;Comm.c: 183:     return &instance;
+[e ) &U _instance ]
+[e $UE 59  ]
+"184
+[; ;Comm.c: 184: }
+[e :UE 59 ]
+}
+"186
+[; ;Comm.c: 186: static void reset(void){
+[v _reset `(v ~T0 @X0 1 sf ]
+{
+[e :U _reset ]
+[f ]
+"187
+[; ;Comm.c: 187:     state = COMM_IDLE;
+[e = _state . `E368 0 ]
+"188
+[; ;Comm.c: 188:     instance.commDriver->reset(instance.commDriver);
+[e ( *U . *U . _instance 2 8 (1 . _instance 2 ]
+"189
+[; ;Comm.c: 189: }
+[e :UE 60 ]
+}
